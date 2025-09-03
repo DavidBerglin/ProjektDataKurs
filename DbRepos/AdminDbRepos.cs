@@ -6,6 +6,8 @@ using Seido.Utilities.SeedGenerator;
 using DbModels;
 using DbContext;
 using Configuration;
+using models;
+using Microsoft.VisualBasic;
 
 namespace DbRepos;
 
@@ -22,8 +24,11 @@ public class AdminDbRepos
         var fn = Path.GetFullPath(_seedSource);
         var seeder = new SeedGenerator(fn);
 
-        //remove existing quotes in the database
         _dbContext.Quotes.RemoveRange(_dbContext.Quotes);
+        _dbContext.CreditCardDbM.RemoveRange(_dbContext.CreditCardDbM);
+
+        var creditcards = seeder.ItemsToList<CreditCardDbM>(1000);
+        _dbContext.CreditCardDbM.AddRange(creditcards);
 
         //Seeding new quotes into the database
         var quotes = seeder.AllQuotes.Select(q => new QuoteDbM(q)).ToList();
@@ -31,6 +36,10 @@ public class AdminDbRepos
 
         //Save changes to the database
         await _dbContext.SaveChangesAsync();
+    }
+    public async Task RemoveCreditCard(CancellationToken ct = default)
+    {
+        await _dbContext.CreditCardDbM.ExecuteDeleteAsync(ct);
     }
 
     public AdminDbRepos(ILogger<AdminDbRepos> logger, Encryptions encryptions, MainDbContext context)

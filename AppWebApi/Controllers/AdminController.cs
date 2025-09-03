@@ -7,6 +7,7 @@ using Services;
 using Configuration;
 using Configuration.Options;
 using Microsoft.Extensions.Options;
+using DbRepos;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,6 +21,8 @@ namespace AppWebApi.Controllers
         readonly IAdminService _service;
         readonly ILogger<AdminController> _logger;
         readonly VersionOptions _versionOptions;
+
+        readonly AdminDbRepos _repos;
 
         //GET: api/admin/environment
         [HttpGet()]
@@ -92,13 +95,23 @@ namespace AppWebApi.Controllers
             return Ok("No messages in log");
         }
 
+        [HttpDelete()]
+        [ActionName("Delete")]
+
+        public async Task<IActionResult> RemoveCreditCard()
+        {
+            await _repos.RemoveCreditCard();
+            return Ok("Removed all creditcards");
+        }
+
         public AdminController(IAdminService service, ILogger<AdminController> logger,
-                DatabaseConnections dbConnections, IOptions<VersionOptions> versionOptions)
+                DatabaseConnections dbConnections, IOptions<VersionOptions> versionOptions, AdminDbRepos repos)
         {
             _service = service;
             _logger = logger;
             _dbConnections = dbConnections;
             _versionOptions = versionOptions.Value;
+            _repos = repos;
         }
     }
 }
