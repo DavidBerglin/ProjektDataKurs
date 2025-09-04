@@ -8,7 +8,7 @@ public class Attraction : IAttraction, ISeed<Attraction>
 
     public bool Seeded { get; set; } = false;
 
-    public AttractionSeed seed(SeedGenerator seeder)
+    public Attraction Seed(SeedGenerator seeder)
     {
         Seeded = true;
         Name = seeder.FullName;

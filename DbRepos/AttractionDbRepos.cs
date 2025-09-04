@@ -5,7 +5,7 @@ using Seido.Utilities.SeedGenerator;
 using DbModels;
 using DbContext;
 using Configuration;
-using models;
+using Models;
 using Microsoft.VisualBasic;
 
 namespace DbRepos;

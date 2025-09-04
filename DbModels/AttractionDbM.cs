@@ -1,5 +1,5 @@
 using DbModels;
-using models;
+using Models;
 using Seido.Utilities.SeedGenerator;
 using System.ComponentModel.DataAnnotations;
 namespace DbModels;
@@ -7,7 +7,7 @@ namespace DbModels;
 public class AttractionDbM : Attraction , ISeed<AttractionDbM>
 {
     [Key]
-    public override string Name { get; set; }
+    public new string Name { get; set; }
 
     public new AttractionDbM Seed(SeedGenerator seeder)
     {

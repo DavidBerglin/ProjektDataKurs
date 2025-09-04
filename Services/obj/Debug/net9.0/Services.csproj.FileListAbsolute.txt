@@ -25,3 +25,9 @@ C:\Users\davva\Desktop\Dataåtkomster\GoodFriends_lesson_branches\Services\bin\D
 C:\Users\davva\Desktop\Dataåtkomster\creditcard\Services\obj\Debug\net9.0\Services.dll
 C:\Users\davva\Desktop\Dataåtkomster\creditcard\Services\obj\Debug\net9.0\refint\Services.dll
 C:\Users\davva\Desktop\Dataåtkomster\creditcard\Services\obj\Debug\net9.0\Services.pdb
+C:\Users\davva\Desktop\Dataåtkomster\creditcard\Services\obj\Debug\net9.0\Services.csproj.AssemblyReference.cache
+C:\Users\davva\Desktop\Dataåtkomster\creditcard\Services\obj\Debug\net9.0\Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\davva\Desktop\Dataåtkomster\creditcard\Services\obj\Debug\net9.0\Services.AssemblyInfoInputs.cache
+C:\Users\davva\Desktop\Dataåtkomster\creditcard\Services\obj\Debug\net9.0\Services.AssemblyInfo.cs
+C:\Users\davva\Desktop\Dataåtkomster\creditcard\Services\obj\Debug\net9.0\Services.csproj.CoreCompileInputs.cache
+C:\Users\davva\Desktop\Dataåtkomster\creditcard\Services\obj\Debug\net9.0\Services.sourcelink.json
