@@ -16,3 +16,6 @@ C:\Users\davva\Desktop\Dataåtkomster\GoodFriends_lesson_branches\DbModels\obj\D
 C:\Users\davva\Desktop\Dataåtkomster\GoodFriends_lesson_branches\DbModels\obj\Debug\net9.0\refint\DbModels.dll
 C:\Users\davva\Desktop\Dataåtkomster\GoodFriends_lesson_branches\DbModels\obj\Debug\net9.0\DbModels.pdb
 C:\Users\davva\Desktop\Dataåtkomster\GoodFriends_lesson_branches\DbModels\obj\Debug\net9.0\ref\DbModels.dll
+C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbModels\obj\Debug\net9.0\DbModels.dll
+C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbModels\obj\Debug\net9.0\refint\DbModels.dll
+C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbModels\obj\Debug\net9.0\DbModels.pdb

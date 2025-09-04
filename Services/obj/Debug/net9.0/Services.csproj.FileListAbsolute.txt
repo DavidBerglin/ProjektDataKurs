@@ -22,3 +22,6 @@ C:\Users\davva\Desktop\Dataåtkomster\GoodFriends_lesson_branches\Services\bin\D
 C:\Users\davva\Desktop\Dataåtkomster\GoodFriends_lesson_branches\Services\bin\Debug\net9.0\DbRepos.pdb
 C:\Users\davva\Desktop\Dataåtkomster\GoodFriends_lesson_branches\Services\bin\Debug\net9.0\DbContext.pdb
 C:\Users\davva\Desktop\Dataåtkomster\GoodFriends_lesson_branches\Services\bin\Debug\net9.0\DbModels.pdb
+C:\Users\davva\Desktop\Dataåtkomster\creditcard\Services\obj\Debug\net9.0\Services.dll
+C:\Users\davva\Desktop\Dataåtkomster\creditcard\Services\obj\Debug\net9.0\refint\Services.dll
+C:\Users\davva\Desktop\Dataåtkomster\creditcard\Services\obj\Debug\net9.0\Services.pdb

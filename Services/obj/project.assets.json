@@ -3755,11 +3755,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\GoodFriends_lesson_branches\\Services\\Services.csproj",
+      "projectUniqueName": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Services\\Services.csproj",
       "projectName": "Services",
-      "projectPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\GoodFriends_lesson_branches\\Services\\Services.csproj",
+      "projectPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Services\\Services.csproj",
       "packagesPath": "C:\\Users\\davva\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\GoodFriends_lesson_branches\\Services\\obj\\",
+      "outputPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Services\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3781,14 +3781,14 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\davva\\Desktop\\Dataåtkomster\\GoodFriends_lesson_branches\\Configuration\\Configuration.csproj": {
-              "projectPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\GoodFriends_lesson_branches\\Configuration\\Configuration.csproj"
+            "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Configuration\\Configuration.csproj": {
+              "projectPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Configuration\\Configuration.csproj"
             },
-            "C:\\Users\\davva\\Desktop\\Dataåtkomster\\GoodFriends_lesson_branches\\DbRepos\\DbRepos.csproj": {
-              "projectPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\GoodFriends_lesson_branches\\DbRepos\\DbRepos.csproj"
+            "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\DbRepos\\DbRepos.csproj": {
+              "projectPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\DbRepos\\DbRepos.csproj"
             },
-            "C:\\Users\\davva\\Desktop\\Dataåtkomster\\GoodFriends_lesson_branches\\Models\\Models.csproj": {
-              "projectPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\GoodFriends_lesson_branches\\Models\\Models.csproj"
+            "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Models\\Models.csproj"
             }
           }
         }

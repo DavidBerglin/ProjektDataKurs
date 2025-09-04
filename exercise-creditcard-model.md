@@ -126,7 +126,7 @@ In `DbRepos/AdminDbRepos.cs`, update the `SeedAsync` method to seed 1000 `Credit
 - Follow the instructions in readme-clr1.txt to build the databases and run the application and verify the new model is seeded.
 
 ---
-
+-
 ### 10. Make a new standalone solution from the branch
 USE File explorer
 - Copy the entire solution folder GoodFriends_lesson_branches

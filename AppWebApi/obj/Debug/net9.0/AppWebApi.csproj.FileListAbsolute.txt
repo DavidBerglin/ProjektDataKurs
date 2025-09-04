@@ -122,3 +122,6 @@ C:\Users\davva\Desktop\Dataåtkomster\GoodFriends_lesson_branches\AppWebApi\bin\
 C:\Users\davva\Desktop\Dataåtkomster\GoodFriends_lesson_branches\AppWebApi\bin\Debug\net9.0\DbContext.pdb
 C:\Users\davva\Desktop\Dataåtkomster\GoodFriends_lesson_branches\AppWebApi\bin\Debug\net9.0\DbModels.pdb
 C:\Users\davva\Desktop\Dataåtkomster\GoodFriends_lesson_branches\AppWebApi\bin\Debug\net9.0\DbRepos.pdb
+C:\Users\davva\Desktop\Dataåtkomster\creditcard\AppWebApi\obj\Debug\net9.0\AppWebApi.dll
+C:\Users\davva\Desktop\Dataåtkomster\creditcard\AppWebApi\obj\Debug\net9.0\refint\AppWebApi.dll
+C:\Users\davva\Desktop\Dataåtkomster\creditcard\AppWebApi\obj\Debug\net9.0\AppWebApi.pdb

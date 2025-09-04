@@ -22,6 +22,9 @@ namespace AppWebApi.Controllers
         readonly ILogger<AdminController> _logger;
         readonly VersionOptions _versionOptions;
 
+        readonly IAttractionService _Aservice;
+        readonly AttractionDbRepos _Arepos;
+
         readonly AdminDbRepos _repos;
 
         //GET: api/admin/environment
@@ -67,18 +70,11 @@ namespace AppWebApi.Controllers
         [ProducesResponseType(400, Type = typeof(string))]
         public async Task<IActionResult> Seed()
         {
-            try
-            {
-                _logger.LogInformation($"{nameof(Seed)}");
-                await _service.SeedAsync();
 
+                await _Aservice.GetAttractionsAsync();
                 return Ok("Seeding completed successfully");
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"{nameof(Seed)}: {ex.Message}");
-                return BadRequest(ex.Message);
-            }
+            
+          
         }
 
         //GET: api/admin/log

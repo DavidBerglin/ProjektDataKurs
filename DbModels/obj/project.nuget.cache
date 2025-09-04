@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TSHbzFXhQFo=",
+  "dgSpecHash": "fKEWGl2CkVM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\GoodFriends_lesson_branches\\DbModels\\DbModels.csproj",
+  "projectFilePath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\DbModels\\DbModels.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\davva\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\davva\\.nuget\\packages\\azure.extensions.aspnetcore.configuration.secrets\\1.4.0\\azure.extensions.aspnetcore.configuration.secrets.1.4.0.nupkg.sha512",
