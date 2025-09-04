@@ -64,10 +64,9 @@ namespace AppWebApi.Controllers
             }
         }
         //GET: api/admin/seed?count={count}
-        [HttpGet()]
+        [HttpPost()]
         [ActionName("Seed")]
         [ProducesResponseType(200, Type = typeof(string))]
-        [ProducesResponseType(400, Type = typeof(string))]
         public async Task<IActionResult> Seed()
         {
 
@@ -101,13 +100,15 @@ namespace AppWebApi.Controllers
         }
 
         public AdminController(IAdminService service, ILogger<AdminController> logger,
-                DatabaseConnections dbConnections, IOptions<VersionOptions> versionOptions, AdminDbRepos repos)
+                DatabaseConnections dbConnections, IOptions<VersionOptions> versionOptions, AdminDbRepos repos, AttractionDbRepos Arepos, IAttractionService Aservice)
         {
             _service = service;
             _logger = logger;
             _dbConnections = dbConnections;
             _versionOptions = versionOptions.Value;
             _repos = repos;
+            _Arepos = Arepos;
+            _Aservice = Aservice;
         }
     }
 }

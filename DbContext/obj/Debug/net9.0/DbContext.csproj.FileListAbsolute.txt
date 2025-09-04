@@ -20,9 +20,6 @@ C:\Users\davva\Desktop\Dataåtkomster\GoodFriends_lesson_branches\DbContext\obj\
 C:\Users\davva\Desktop\Dataåtkomster\GoodFriends_lesson_branches\DbContext\obj\Debug\net9.0\DbContext.pdb
 C:\Users\davva\Desktop\Dataåtkomster\GoodFriends_lesson_branches\DbContext\obj\Debug\net9.0\DbContext.genruntimeconfig.cache
 C:\Users\davva\Desktop\Dataåtkomster\GoodFriends_lesson_branches\DbContext\obj\Debug\net9.0\ref\DbContext.dll
-C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbContext\obj\Debug\net9.0\DbContext.dll
-C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbContext\obj\Debug\net9.0\refint\DbContext.dll
-C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbContext\obj\Debug\net9.0\DbContext.pdb
 C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbContext\bin\Debug\net9.0\DbContext.deps.json
 C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbContext\bin\Debug\net9.0\DbContext.runtimeconfig.json
 C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbContext\bin\Debug\net9.0\DbContext.dll
@@ -40,5 +37,8 @@ C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbContext\obj\Debug\net9.0\DbCo
 C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbContext\obj\Debug\net9.0\DbContext.csproj.CoreCompileInputs.cache
 C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbContext\obj\Debug\net9.0\DbContext.sourcelink.json
 C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbContext\obj\Debug\net9.0\DbContext.csproj.Up2Date
+C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbContext\obj\Debug\net9.0\DbContext.dll
+C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbContext\obj\Debug\net9.0\refint\DbContext.dll
+C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbContext\obj\Debug\net9.0\DbContext.pdb
 C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbContext\obj\Debug\net9.0\DbContext.genruntimeconfig.cache
 C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbContext\obj\Debug\net9.0\ref\DbContext.dll

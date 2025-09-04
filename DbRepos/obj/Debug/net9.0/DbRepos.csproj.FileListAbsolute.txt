@@ -20,9 +20,6 @@ C:\Users\davva\Desktop\Dataåtkomster\GoodFriends_lesson_branches\DbRepos\obj\De
 C:\Users\davva\Desktop\Dataåtkomster\GoodFriends_lesson_branches\DbRepos\obj\Debug\net9.0\refint\DbRepos.dll
 C:\Users\davva\Desktop\Dataåtkomster\GoodFriends_lesson_branches\DbRepos\obj\Debug\net9.0\DbRepos.pdb
 C:\Users\davva\Desktop\Dataåtkomster\GoodFriends_lesson_branches\DbRepos\obj\Debug\net9.0\ref\DbRepos.dll
-C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbRepos\obj\Debug\net9.0\DbRepos.dll
-C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbRepos\obj\Debug\net9.0\refint\DbRepos.dll
-C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbRepos\obj\Debug\net9.0\DbRepos.pdb
 C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbRepos\bin\Debug\net9.0\DbRepos.deps.json
 C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbRepos\bin\Debug\net9.0\DbRepos.dll
 C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbRepos\bin\Debug\net9.0\DbRepos.pdb
@@ -41,4 +38,7 @@ C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbRepos\obj\Debug\net9.0\DbRepo
 C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbRepos\obj\Debug\net9.0\DbRepos.csproj.CoreCompileInputs.cache
 C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbRepos\obj\Debug\net9.0\DbRepos.sourcelink.json
 C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbRepos\obj\Debug\net9.0\DbRepos.csproj.Up2Date
+C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbRepos\obj\Debug\net9.0\DbRepos.dll
+C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbRepos\obj\Debug\net9.0\refint\DbRepos.dll
+C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbRepos\obj\Debug\net9.0\DbRepos.pdb
 C:\Users\davva\Desktop\Dataåtkomster\creditcard\DbRepos\obj\Debug\net9.0\ref\DbRepos.dll

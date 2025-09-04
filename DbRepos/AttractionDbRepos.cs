@@ -7,19 +7,17 @@ using DbContext;
 using Configuration;
 using Models;
 using Microsoft.VisualBasic;
+using DbRepos;
 
 namespace DbRepos;
 
 public class AttractionDbRepos
 {
-    private const string _seedSource = "./app-seeds.json";
-
     private readonly MainDbContext _dbContext;
 
     public async Task GetAttractionsAsync()
     {
-        var fn = Path.GetFullPath(_seedSource);
-        var seeder = new SeedGenerator(fn);
+        var seeder = new SeedGenerator();
 
         _dbContext.AttractionDbM.RemoveRange(_dbContext.AttractionDbM);
 
