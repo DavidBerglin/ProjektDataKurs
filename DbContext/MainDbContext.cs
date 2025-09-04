@@ -25,8 +25,8 @@ public class MainDbContext : Microsoft.EntityFrameworkCore.DbContext
 
     #region C# model of database tables
 
-    public DbSet<AddressDbM> AddressDbM { get; set; }
-    public DbSet<AttractionDbM> AttractionDbM { get; set;} = default!;
+    public DbSet<AttractionDbM> AttractionDbM { get; set;}
+    public DbSet<CreditCardDbM> CreditCardDbM { get; set; }
     #endregion
 
     #region constructors

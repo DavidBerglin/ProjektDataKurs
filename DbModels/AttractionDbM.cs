@@ -7,10 +7,13 @@ namespace DbModels;
 public class AttractionDbM : Attraction
 {
     [Key]
+
     public new string Name { get; set; }
+    public string City { get; set; }
+    public string Country { get; set; }
 
-    public AddressDbM Address { get; set; } = null;
+    public string Street { get; set; }
+    
+    public int Zip { get; set; }
 
-    [NotMapped]
-    public new IAddress Address { get => AddressDbM; set => new NotImplementedException(); }
 }

@@ -67,13 +67,29 @@ namespace AppWebApi.Controllers
         [HttpPost()]
         [ActionName("Seed")]
         [ProducesResponseType(200, Type = typeof(string))]
+        [ProducesResponseType(400, Type = typeof(string))]
+
         public async Task<IActionResult> Seed()
         {
 
-                await _Aservice.GetAttractionsAsync();
-                return Ok("Seeding completed successfully");
-            
-          
+            await _service.SeedAsync();
+            return Ok("Seeding completed successfully");
+
+
+        }
+
+        [HttpGet()]
+        [ActionName("SeedAttraction")]
+        [ProducesResponseType(200, Type = typeof(string))]
+        [ProducesResponseType(400, Type = typeof(string))]
+
+        public async Task<IActionResult> SeedAttraction()
+        {
+
+            await _Aservice.GetAttractionsAsync();
+            return Ok("Seeding completed successfully");
+
+
         }
 
         //GET: api/admin/log

@@ -27,8 +27,20 @@ namespace DbContext.Migrations.SqlServerDbContext
                     b.Property<string>("Name")
                         .HasColumnType("varchar(200)");
 
+                    b.Property<string>("City")
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<string>("Country")
+                        .HasColumnType("varchar(200)");
+
                     b.Property<bool>("Seeded")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Street")
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<int>("Zip")
+                        .HasColumnType("int");
 
                     b.HasKey("Name");
 

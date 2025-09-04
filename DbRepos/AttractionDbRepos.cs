@@ -15,16 +15,20 @@ public class AttractionDbRepos
 {
     private readonly MainDbContext _dbContext;
 
-    public async Task GetAttractionsAsync()
+    public async Task GetAttractionsAsync(int count = 500, CancellationToken ct = default)
     {
-        var seeder = new SeedGenerator();
+        var g = new SeedGenerator();
 
-        _dbContext.AttractionDbM.RemoveRange(_dbContext.AttractionDbM);
+        await _dbContext.AttractionDbM.ExecuteDeleteAsync(ct);
 
-        var attractions = seeder.ItemsToList<AttractionDbM>(1000);
-        _dbContext.AttractionDbM.AddRange(attractions);
-
-        await _dbContext.SaveChangesAsync();
+        var attractions = Enumerable.Range(0, count).Select(i => new AttractionDbM
+        {
+            Name = g.FromString("Zoo, Museum, Park, Castle"),
+            City = g.City(),
+            Country = g.Country,
+            Street = g.StreetAddress(),
+            Zip = g.ZipCode
+        }).ToList();
     }
 
     public AttractionDbRepos(MainDbContext context)

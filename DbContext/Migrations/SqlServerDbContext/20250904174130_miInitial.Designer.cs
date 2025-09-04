@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DbContext.Migrations.SqlServerDbContext
 {
     [DbContext(typeof(MainDbContext.SqlServerDbContext))]
-    [Migration("20250904104158_miInitial")]
+    [Migration("20250904174130_miInitial")]
     partial class miInitial
     {
         /// <inheritdoc />
@@ -30,8 +30,20 @@ namespace DbContext.Migrations.SqlServerDbContext
                     b.Property<string>("Name")
                         .HasColumnType("varchar(200)");
 
+                    b.Property<string>("City")
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<string>("Country")
+                        .HasColumnType("varchar(200)");
+
                     b.Property<bool>("Seeded")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Street")
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<int>("Zip")
+                        .HasColumnType("int");
 
                     b.HasKey("Name");
 

@@ -16,6 +16,10 @@ namespace DbContext.Migrations.SqlServerDbContext
                 columns: table => new
                 {
                     Name = table.Column<string>(type: "varchar(200)", nullable: false),
+                    City = table.Column<string>(type: "varchar(200)", nullable: true),
+                    Country = table.Column<string>(type: "varchar(200)", nullable: true),
+                    Street = table.Column<string>(type: "varchar(200)", nullable: true),
+                    Zip = table.Column<int>(type: "int", nullable: false),
                     Seeded = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>

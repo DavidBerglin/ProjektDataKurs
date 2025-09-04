@@ -24,6 +24,7 @@ public class AdminDbRepos
         var fn = Path.GetFullPath(_seedSource);
         var seeder = new SeedGenerator(fn);
 
+        
         _dbContext.CreditCardDbM.RemoveRange(_dbContext.CreditCardDbM);
 
         var creditcards = seeder.ItemsToList<CreditCardDbM>(1000);
