@@ -2,7 +2,7 @@ namespace Models;
 using Models;
 using Seido.Utilities.SeedGenerator;
 
-public class Attraction : IAttraction , ISeed<Attraction>
+public class Attraction : IAttraction, ISeed<Attraction>
 {
     public string Name { get; set; }
 
@@ -15,3 +15,4 @@ public class Attraction : IAttraction , ISeed<Attraction>
         return this;
     }
 }
+//
