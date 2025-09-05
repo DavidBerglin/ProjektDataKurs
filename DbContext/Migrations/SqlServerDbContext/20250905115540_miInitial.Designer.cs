@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DbContext.Migrations.SqlServerDbContext
 {
     [DbContext(typeof(MainDbContext.SqlServerDbContext))]
-    [Migration("20250904174130_miInitial")]
+    [Migration("20250905115540_miInitial")]
     partial class miInitial
     {
         /// <inheritdoc />
@@ -27,13 +27,18 @@ namespace DbContext.Migrations.SqlServerDbContext
 
             modelBuilder.Entity("DbModels.AttractionDbM", b =>
                 {
-                    b.Property<string>("Name")
-                        .HasColumnType("varchar(200)");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("City")
                         .HasColumnType("varchar(200)");
 
                     b.Property<string>("Country")
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("varchar(200)");
 
                     b.Property<bool>("Seeded")
@@ -45,7 +50,7 @@ namespace DbContext.Migrations.SqlServerDbContext
                     b.Property<int>("Zip")
                         .HasColumnType("int");
 
-                    b.HasKey("Name");
+                    b.HasKey("Id");
 
                     b.ToTable("AttractionDbM");
                 });

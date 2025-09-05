@@ -24,13 +24,18 @@ namespace DbContext.Migrations.SqlServerDbContext
 
             modelBuilder.Entity("DbModels.AttractionDbM", b =>
                 {
-                    b.Property<string>("Name")
-                        .HasColumnType("varchar(200)");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("City")
                         .HasColumnType("varchar(200)");
 
                     b.Property<string>("Country")
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("varchar(200)");
 
                     b.Property<bool>("Seeded")
@@ -42,7 +47,7 @@ namespace DbContext.Migrations.SqlServerDbContext
                     b.Property<int>("Zip")
                         .HasColumnType("int");
 
-                    b.HasKey("Name");
+                    b.HasKey("Id");
 
                     b.ToTable("AttractionDbM");
                 });

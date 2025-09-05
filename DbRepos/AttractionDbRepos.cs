@@ -23,12 +23,16 @@ public class AttractionDbRepos
 
         var attractions = Enumerable.Range(0, count).Select(i => new AttractionDbM
         {
-            Name = g.FromString("Zoo, Museum, Park, Castle"),
+            Id = Guid.NewGuid(),
+            Name = $"{g.FromString("Zoo,Museum,Park,Castle")} {g.City()} #{i}",
             City = g.City(),
             Country = g.Country,
             Street = g.StreetAddress(),
             Zip = g.ZipCode
         }).ToList();
+
+        await _dbContext.AttractionDbM.AddRangeAsync(attractions, ct);
+        await _dbContext.SaveChangesAsync(ct);
     }
 
     public AttractionDbRepos(MainDbContext context)

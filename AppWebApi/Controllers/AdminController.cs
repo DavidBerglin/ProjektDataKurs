@@ -78,15 +78,15 @@ namespace AppWebApi.Controllers
 
         }
 
-        [HttpGet()]
+        [HttpPost()]
         [ActionName("SeedAttraction")]
         [ProducesResponseType(200, Type = typeof(string))]
         [ProducesResponseType(400, Type = typeof(string))]
 
-        public async Task<IActionResult> SeedAttraction()
+        public async Task<IActionResult> SeedAttraction([FromQuery] int count = 500, CancellationToken ct = default)
         {
 
-            await _Aservice.GetAttractionsAsync();
+            await _Aservice.GetAttractionsAsync(count, ct);
             return Ok("Seeding completed successfully");
 
 

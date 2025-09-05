@@ -15,6 +15,7 @@ namespace DbContext.Migrations.SqlServerDbContext
                 name: "AttractionDbM",
                 columns: table => new
                 {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "varchar(200)", nullable: false),
                     City = table.Column<string>(type: "varchar(200)", nullable: true),
                     Country = table.Column<string>(type: "varchar(200)", nullable: true),
@@ -24,7 +25,7 @@ namespace DbContext.Migrations.SqlServerDbContext
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AttractionDbM", x => x.Name);
+                    table.PrimaryKey("PK_AttractionDbM", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(

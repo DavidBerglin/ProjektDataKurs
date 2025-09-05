@@ -42,8 +42,15 @@ public class MainDbContext : Microsoft.EntityFrameworkCore.DbContext
     {
         #region override modelbuilder
         #endregion
-        
+
         base.OnModelCreating(modelBuilder);
+        
+        modelBuilder.Entity<AttractionDbM>(b =>
+{
+    b.HasKey(x => x.Id);
+    b.Property(x => x.Name).IsRequired();
+    // b.HasIndex(x => x.Name); // valfritt index
+});
     }
 
     #region DbContext for some popular databases
