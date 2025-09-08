@@ -1,3 +1,4 @@
+using System.Net.Sockets;
 using System.Security.Cryptography.Xml;
 
 namespace models;
@@ -8,5 +9,6 @@ public interface IUsers
     public string FullName { get; set; }
     public string Email { get; set; }
 
-    
+    public Address Address { get; set; }
+
 }

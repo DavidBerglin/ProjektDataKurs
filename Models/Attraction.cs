@@ -10,7 +10,6 @@ public class Attraction : IAttraction, ISeed<Attraction>
 
     public Attraction Seed(SeedGenerator seeder)
     {
-        Seeded = true;
         Name = seeder.FullName;
         return this;
     }

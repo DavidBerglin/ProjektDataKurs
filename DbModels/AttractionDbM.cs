@@ -8,7 +8,7 @@ public class AttractionDbM : Attraction
 {
     [Key]
 
-    public Guid Id { get; set; }   // tydlig PK
+    public Guid Id { get; set; }
 
     public string Name { get; set; }
     public string City { get; set; }
