@@ -47,9 +47,31 @@ public class MainDbContext : Microsoft.EntityFrameworkCore.DbContext
         #endregion
 
         base.OnModelCreating(modelBuilder);
-        modelBuilder.Entity<Attraction>()
-        .HasKey(a => a.AttractionId);
-        modelBuilder.Entity<AttractionDbM>();
+
+        modelBuilder.Entity<UsersDbM>(b =>
+    {
+        b.HasKey(u => u.UserId);
+
+        b.HasOne(u => u.AddressDbM)
+         .WithMany(a => a.UsersDbM)
+         .HasForeignKey(u => u.Address)
+         .OnDelete(DeleteBehavior.SetNull); // om adress tas bort, nolla FK på users
+    });
+
+    // Address
+    modelBuilder.Entity<AddressDbM>(b =>
+    {
+        b.HasKey(a => a.AddressId);
+        b.Property(a => a.StreetAddress).HasMaxLength(200);
+        b.Property(a => a.City).HasMaxLength(100);
+        b.Property(a => a.Country).HasMaxLength(100);
+    });
+
+    // Attraction
+    modelBuilder.Entity<AttractionDbM>(b =>
+    {
+        b.HasKey(a => a.AttractionId);
+    });
     }
         
   

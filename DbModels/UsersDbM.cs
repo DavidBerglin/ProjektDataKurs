@@ -19,7 +19,13 @@ namespace DbModels
 
         public override string Email { get; set; }
 
-        public override IAddress Address { get; set; }
+        [NotMapped]
+        public override IAddress Address { get => AddressDbM; set => new NotImplementedException(); }
+
+
+        [JsonIgnore]
+        [ForeignKey("AddressId")]
+        public AddressDbM AddressDbM { get; set; }
 
         public UsersDbM() { }
 

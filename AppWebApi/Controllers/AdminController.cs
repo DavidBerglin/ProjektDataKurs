@@ -26,6 +26,8 @@ namespace AppWebApi.Controllers
         readonly AddressDbRepos _AddRepos;
         readonly IAttractionService _Aservice;
         readonly AttractionDbRepos _Arepos;
+        readonly IUserService _UserService;
+        readonly UserDbRepos _UserRepos;
 
         readonly AdminDbRepos _repos;
 
@@ -101,6 +103,13 @@ namespace AppWebApi.Controllers
             return Ok("Address seeding completed");
         }
 
+         [HttpPost("SeedUser")]
+        public async Task<IActionResult> SeedUser()
+        {
+            await _UserService.GetUsersAsync();
+            return Ok("Address seeding completed");
+        }
+
         //GET: api/admin/log
         [HttpGet()]
         [ActionName("Log")]
@@ -132,7 +141,9 @@ namespace AppWebApi.Controllers
             AttractionDbRepos Arepos,
             IAttractionService Aservice,
             IAddressService AddService,
-            AddressDbRepos AddRepos)
+            AddressDbRepos AddRepos,
+            UserDbRepos UserRepos,
+            IUserService UserService)
         {
             _service = service;
             _logger = logger;
@@ -143,6 +154,8 @@ namespace AppWebApi.Controllers
             _Aservice = Aservice;
             _AddressService = AddService;
             _AddRepos = AddRepos;
+            _UserRepos = UserRepos;
+            _UserService = UserService;
         }
     }
 }

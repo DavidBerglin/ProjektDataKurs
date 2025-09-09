@@ -5,13 +5,13 @@ namespace Services
 {
     public class UserServiceDb : IUserService
     {
-        private readonly UserServiceDb _user = null;
+        private readonly UserDbRepos _user = null;
         public Task GetUsersAsync()
         {
             return _user.GetUsersAsync();
         }
 
-        public UserServiceDb(UserServiceDb user)
+        public UserServiceDb(UserDbRepos user)
         {
             _user = user;
         }
