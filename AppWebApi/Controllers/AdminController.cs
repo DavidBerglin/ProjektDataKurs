@@ -22,6 +22,8 @@ namespace AppWebApi.Controllers
         readonly ILogger<AdminController> _logger;
         readonly VersionOptions _versionOptions;
 
+        readonly IAddressService _AddressService;
+        readonly AddressDbRepos _AddRepos;
         readonly IAttractionService _Aservice;
         readonly AttractionDbRepos _Arepos;
 
@@ -83,13 +85,20 @@ namespace AppWebApi.Controllers
         [ProducesResponseType(200, Type = typeof(string))]
         [ProducesResponseType(400, Type = typeof(string))]
 
-        public async Task<IActionResult> SeedAttraction([FromQuery] int count = 500, CancellationToken ct = default)
+        public async Task<IActionResult> SeedAttraction()
         {
 
-            await _Aservice.GetAttractionsAsync(count, ct);
+            await _Aservice.GetAttractionsAsync();
             return Ok("Seeding completed successfully");
 
 
+        }
+        
+        [HttpPost("SeedAddress")]
+        public async Task<IActionResult> SeedAddress()
+        {
+            await _AddressService.GetAddressAsync();
+            return Ok("Address seeding completed");
         }
 
         //GET: api/admin/log
@@ -115,8 +124,15 @@ namespace AppWebApi.Controllers
             return Ok("Removed all creditcards");
         }
 
-        public AdminController(IAdminService service, ILogger<AdminController> logger,
-                DatabaseConnections dbConnections, IOptions<VersionOptions> versionOptions, AdminDbRepos repos, AttractionDbRepos Arepos, IAttractionService Aservice)
+        public AdminController(IAdminService service,
+            ILogger<AdminController> logger,
+            DatabaseConnections dbConnections,
+            IOptions<VersionOptions> versionOptions,
+            AdminDbRepos repos,
+            AttractionDbRepos Arepos,
+            IAttractionService Aservice,
+            IAddressService AddService,
+            AddressDbRepos AddRepos)
         {
             _service = service;
             _logger = logger;
@@ -125,6 +141,8 @@ namespace AppWebApi.Controllers
             _repos = repos;
             _Arepos = Arepos;
             _Aservice = Aservice;
+            _AddressService = AddService;
+            _AddRepos = AddRepos;
         }
     }
 }

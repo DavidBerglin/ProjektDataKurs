@@ -1,14 +1,14 @@
 using System.Net.Sockets;
 using System.Security.Cryptography.Xml;
+using Models;
 
 namespace models;
 
 public interface IUsers
 {
-    public Guid Id { get; set; }
+    public Guid UserId { get; set; }
     public string FullName { get; set; }
     public string Email { get; set; }
-
-    public Address Address { get; set; }
+    public IAddress Address { get; set; }
 
 }

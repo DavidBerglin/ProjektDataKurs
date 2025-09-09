@@ -11,23 +11,20 @@ using DbRepos;
 
 namespace DbRepos;
 
-public class AttractionDbRepos
+public class UserDbRepos
 {
     private readonly MainDbContext _dbContext;
 
-    public async Task GetAttractionsAsync()
+    public async Task GetUsersAsync()
     {
-        var g = new SeedGenerator();
-
-        _dbContext.AttractionDbM.RemoveRange(_dbContext.AttractionDbM);
-        var attractions = g.UniqueItemsToList<AttractionDbM>(1000);
-        await _dbContext.AttractionDbM.AddRangeAsync(attractions);
+        var seed = new SeedGenerator();
+        _dbContext.UsersDbM.RemoveRange(_dbContext.UsersDbM);
+        var users = seed.ItemsToList<UsersDbM>(1000);
+        await _dbContext.UsersDbM.AddRangeAsync(users);
         await _dbContext.SaveChangesAsync();
     }
-
-    public AttractionDbRepos(MainDbContext context)
+    public UserDbRepos(MainDbContext context)
     {
         _dbContext = context;
     }
-
 }

@@ -6,6 +6,7 @@ using Configuration;
 using DbModels;
 using Microsoft.Extensions.Hosting.Internal;
 using DbContext.Extensions;
+using Models;
 
 namespace DbContext;
 
@@ -27,6 +28,8 @@ public class MainDbContext : Microsoft.EntityFrameworkCore.DbContext
 
     public DbSet<AttractionDbM> AttractionDbM { get; set;}
     public DbSet<CreditCardDbM> CreditCardDbM { get; set; }
+    public DbSet<AddressDbM> AddressDbM { get; set; }
+    public DbSet<UsersDbM> UsersDbM { get; set; }
     #endregion
 
     #region constructors
@@ -44,14 +47,12 @@ public class MainDbContext : Microsoft.EntityFrameworkCore.DbContext
         #endregion
 
         base.OnModelCreating(modelBuilder);
-        
-        modelBuilder.Entity<AttractionDbM>(b =>
-{
-    b.HasKey(x => x.Id);
-    b.Property(x => x.Name).IsRequired();
-    // b.HasIndex(x => x.Name); // valfritt index
-});
+        modelBuilder.Entity<Attraction>()
+        .HasKey(a => a.AttractionId);
+        modelBuilder.Entity<AttractionDbM>();
     }
+        
+  
 
     #region DbContext for some popular databases
     public class SqlServerDbContext : MainDbContext

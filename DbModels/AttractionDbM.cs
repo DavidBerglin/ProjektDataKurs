@@ -1,21 +1,23 @@
 using DbModels;
+using Microsoft.Identity.Client;
 using Models;
 using Seido.Utilities.SeedGenerator;
 using System.ComponentModel.DataAnnotations;
 namespace DbModels;
 
-public class AttractionDbM : Attraction
+public class AttractionDbM : Attraction, ISeed<AttractionDbM> , IEquatable<AttractionDbM>
 {
     [Key]
+    public override Guid AttractionId { get; set; }
 
-    public Guid Id { get; set; }
-
-    public string Name { get; set; }
-    public string City { get; set; }
-    public string Country { get; set; }
-
-    public string Street { get; set; }
-    
-    public int Zip { get; set; }
+    public bool Equals(AttractionDbM other) => (other != null) ? AttractionId == other.AttractionId : false;
+    public override int GetHashCode() => AttractionId.GetHashCode();
+   
+    public AttractionDbM() {}
+    public new AttractionDbM Seed(SeedGenerator seeder)
+    {
+        base.Seed(seeder);
+        return this;
+    }
 
 }

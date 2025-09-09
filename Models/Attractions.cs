@@ -5,9 +5,9 @@ using Models.Enums;
 namespace Models
 {
 
-    public class Attraction : ISeed<Attraction>
+    public class Attraction : ISeed<Attraction>, IEquatable<Attraction>
     {
-        public Guid AttractionId { get; set; }
+        public virtual Guid AttractionId { get; set; }
 
         public string Name { get; set; }
         public string Address { get; set; }
@@ -21,6 +21,11 @@ namespace Models
         public bool Seeded { get; set; } = false;
         public override string ToString() =>  $"Id: {AttractionId}. \nName: {Name}. \nType: {Type}. \nCategory: {Category.ToString().Replace("And", " and ")}, \nCity: {City}. \nCountry: {Country}. \nAddress: {Address} \n -------";
 
+        public bool Equals(Attraction other) => (other != null) ? (AttractionId) == (other.AttractionId) : false;
+        public override bool Equals(object obj) => Equals(obj as Attraction);
+        public override int GetHashCode() => AttractionId.GetHashCode();
+       
+       
 
         public Attraction Seed(SeedGenerator rnd)
         {
@@ -34,5 +39,7 @@ namespace Models
             return this;
 
         }
+
+        
     }
 }

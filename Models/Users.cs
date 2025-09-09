@@ -1,10 +1,31 @@
+using models;
+using Models;
+using Seido.Utilities.SeedGenerator;
 namespace models;
 
-public class Users : IUsers
+public class Users : IUsers, ISeed<Users>
 {
-    public Guid Id { get; set; }
-    public string FullName { get; set; }
-    public string Email { get; set; }
+    public virtual Guid UserId { get; set; }
+    public virtual string FullName { get; set; }
+    public virtual string Email { get; set; }
+    public virtual IAddress Address { get; set; }
+    public bool Seeded { get; set; } = false;
 
-    public Address Address { get; set; }
+    public Users() { }
+
+    public Users(Users OG)
+    {
+        this.UserId = OG.UserId;
+        this.FullName = OG.FullName;
+        this.Email = OG.Email;
+        this.Address = OG.Address;
+    }
+    public virtual Users Seed(SeedGenerator seeder)
+    {
+        UserId = Guid.NewGuid();
+        FullName = seeder.FullName;
+        Email = seeder.Email(FullName);
+        return this;
+
+    }
 }
