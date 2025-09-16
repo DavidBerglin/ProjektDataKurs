@@ -27,9 +27,9 @@ public class MainDbContext : Microsoft.EntityFrameworkCore.DbContext
     #region C# model of database tables
 
     public DbSet<AttractionDbM> AttractionDbM { get; set;}
-    public DbSet<CreditCardDbM> CreditCardDbM { get; set; }
     public DbSet<AddressDbM> AddressDbM { get; set; }
     public DbSet<UsersDbM> UsersDbM { get; set; }
+    public DbSet<CommentDbM> CommentsDbM { get; set; }
     #endregion
 
     #region constructors
@@ -47,14 +47,15 @@ public class MainDbContext : Microsoft.EntityFrameworkCore.DbContext
         #endregion
 
         base.OnModelCreating(modelBuilder);
+            modelBuilder.Ignore<Models.Attraction>();
+
 
         modelBuilder.Entity<UsersDbM>(b =>
     {
         b.HasKey(u => u.UserId);
-
         b.HasOne(u => u.AddressDbM)
          .WithMany(a => a.UsersDbM)
-         .HasForeignKey(u => u.Address)
+         .HasForeignKey(u => u.AddressId)
          .OnDelete(DeleteBehavior.SetNull); // om adress tas bort, nolla FK på users
     });
 
@@ -65,6 +66,7 @@ public class MainDbContext : Microsoft.EntityFrameworkCore.DbContext
         b.Property(a => a.StreetAddress).HasMaxLength(200);
         b.Property(a => a.City).HasMaxLength(100);
         b.Property(a => a.Country).HasMaxLength(100);
+        
     });
 
     // Attraction

@@ -1,6 +1,8 @@
+using Models;
+
 namespace Services;
 
 public interface IAddressService
 {
-   public Task GetAddressAsync();
+   public Task<List<IAddress>> ReadAddressAsync(int number);
 }

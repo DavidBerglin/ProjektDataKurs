@@ -2,7 +2,7 @@ using System.Net.Sockets;
 using System.Security.Cryptography.Xml;
 using Models;
 
-namespace models;
+namespace Models;
 
 public interface IUsers
 {

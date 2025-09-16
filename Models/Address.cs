@@ -1,10 +1,11 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using Models;
 using Seido.Utilities.SeedGenerator;
 
-namespace models;
+namespace Models;
 
 public abstract class Address : IAddress, IEquatable<Address>, ISeed<Address>
-{
+{   [NotMapped]
     public virtual Guid AddressId { get; set; }
     public virtual string StreetAddress { get; set; }
     public virtual string City { get; set; }

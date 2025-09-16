@@ -15,12 +15,12 @@ public class AttractionDbRepos
 {
     private readonly MainDbContext _dbContext;
 
-    public async Task GetAttractionsAsync()
+    public async Task GetAttractionsAsync(int number)
     {
         var g = new SeedGenerator();
 
         _dbContext.AttractionDbM.RemoveRange(_dbContext.AttractionDbM);
-        var attractions = g.UniqueItemsToList<AttractionDbM>(1000);
+        var attractions = g.UniqueItemsToList<AttractionDbM>(number);
         await _dbContext.AttractionDbM.AddRangeAsync(attractions);
         await _dbContext.SaveChangesAsync();
     }

@@ -2,7 +2,7 @@ namespace Services;
 
 public interface IAdminService
 {
-    public Task SeedAsync();
+    public Task SeedAsync(int number);
 
     
 }

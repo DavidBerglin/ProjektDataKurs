@@ -8,6 +8,8 @@ using Configuration;
 using Configuration.Options;
 using Microsoft.Extensions.Options;
 using DbRepos;
+using DbModels;
+using Models;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -73,10 +75,10 @@ namespace AppWebApi.Controllers
         [ProducesResponseType(200, Type = typeof(string))]
         [ProducesResponseType(400, Type = typeof(string))]
 
-        public async Task<IActionResult> Seed()
+        public async Task<IActionResult> Seed([FromQuery]int number)
         {
 
-            await _service.SeedAsync();
+            await _service.SeedAsync(number);
             return Ok("Seeding completed successfully");
 
 
@@ -87,27 +89,30 @@ namespace AppWebApi.Controllers
         [ProducesResponseType(200, Type = typeof(string))]
         [ProducesResponseType(400, Type = typeof(string))]
 
-        public async Task<IActionResult> SeedAttraction()
+        public async Task<IActionResult> SeedAttraction([FromQuery]int number)
         {
 
-            await _Aservice.GetAttractionsAsync();
-            return Ok("Seeding completed successfully");
+            await _Aservice.GetAttractionsAsync(number);
+            return Ok($"Seeded {number} attractions");
 
 
         }
-        
-        [HttpPost("SeedAddress")]
-        public async Task<IActionResult> SeedAddress()
+
+        [HttpPost]
+        [ActionName("ReadAddress")]
+        [ProducesResponseType(200, Type = typeof(IAddress))]
+        [ProducesResponseType(400, Type = typeof(string))]
+        public async Task<IActionResult> ReadAddress([FromQuery]int number)
         {
-            await _AddressService.GetAddressAsync();
-            return Ok("Address seeding completed");
+            var respons = await _AddressService.ReadAddressAsync(number);
+            return Ok(respons);
         }
 
          [HttpPost("SeedUser")]
-        public async Task<IActionResult> SeedUser()
+        public async Task<IActionResult> SeedUser([FromQuery]int number)
         {
-            await _UserService.GetUsersAsync();
-            return Ok("Address seeding completed");
+            await _UserService.GetUsersAsync(number);
+            return Ok($"{number} users seeded");
         }
 
         //GET: api/admin/log
@@ -124,14 +129,7 @@ namespace AppWebApi.Controllers
             return Ok("No messages in log");
         }
 
-        [HttpDelete()]
-        [ActionName("Delete")]
-
-        public async Task<IActionResult> RemoveCreditCard()
-        {
-            await _repos.RemoveCreditCard();
-            return Ok("Removed all creditcards");
-        }
+    
 
         public AdminController(IAdminService service,
             ILogger<AdminController> logger,

@@ -2,5 +2,5 @@ namespace Services;
 
 public interface IAttractionService
 {
-   public Task GetAttractionsAsync();
+   public Task GetAttractionsAsync(int number);
 }

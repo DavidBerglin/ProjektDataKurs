@@ -8,6 +8,8 @@ using Configuration;
 using Models;
 using Microsoft.VisualBasic;
 using DbRepos;
+using System.Data.Common;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DbRepos;
 
@@ -15,15 +17,14 @@ public class AddressDbRepos
 {
     private readonly MainDbContext _dbContext;
 
-    public async Task GetAddressAsync()
+    public async Task<List<IAddress>> ReadAddressAsync(int number)
     {
-        var seed = new SeedGenerator();
-        _dbContext.AddressDbM.RemoveRange(_dbContext.AddressDbM);
-        var address = seed.ItemsToList<AddressDbM>(1000);
-        await _dbContext.AddressDbM.AddRangeAsync(address);
-        await _dbContext.SaveChangesAsync();
-
-
+         return await _dbContext.AddressDbM
+        .AsNoTracking()
+        .Take(number)
+        .Cast<IAddress>()
+        .ToListAsync();
+      
     }
     public AddressDbRepos(MainDbContext context)
     {

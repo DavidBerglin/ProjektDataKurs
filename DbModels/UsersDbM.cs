@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 
 using Seido.Utilities.SeedGenerator;
 using Models;
-using models;
 using Microsoft.Identity.Client;
 
 namespace DbModels
@@ -14,17 +13,15 @@ namespace DbModels
     {
         [Key]
         public override Guid UserId { get; set; }
-
+        public override Guid? AddressId { get; set; }
         public override string FullName { get; set; }
-
         public override string Email { get; set; }
+        public override string StreetAddress { get; set; }
 
-        [NotMapped]
+
+
+      [NotMapped]
         public override IAddress Address { get => AddressDbM; set => new NotImplementedException(); }
-
-
-        [JsonIgnore]
-        [ForeignKey("AddressId")]
         public AddressDbM AddressDbM { get; set; }
 
         public UsersDbM() { }

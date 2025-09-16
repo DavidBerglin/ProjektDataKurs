@@ -7,9 +7,9 @@ namespace Services
     {
         private readonly AddressDbRepos _repo = null;
 
-        public Task GetAddressAsync()
+        public Task<List<IAddress>> ReadAddressAsync(int number)
         {
-            return _repo.GetAddressAsync();
+            return _repo.ReadAddressAsync(number);
         }
         public AddressServiceDb(AddressDbRepos repo)
         {

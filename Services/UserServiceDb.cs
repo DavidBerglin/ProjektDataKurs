@@ -6,9 +6,9 @@ namespace Services
     public class UserServiceDb : IUserService
     {
         private readonly UserDbRepos _user = null;
-        public Task GetUsersAsync()
+        public Task GetUsersAsync(int number)
         {
-            return _user.GetUsersAsync();
+            return _user.GetUsersAsync(number);
         }
 
         public UserServiceDb(UserDbRepos user)

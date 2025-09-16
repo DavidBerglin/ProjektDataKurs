@@ -62,6 +62,8 @@ builder.Services.AddScoped<AdminDbRepos>();
 builder.Services.AddScoped<AttractionDbRepos>();
 builder.Services.AddScoped<AddressDbRepos>();
 builder.Services.AddScoped<UserDbRepos>();
+builder.Services.AddScoped<CommentDbRepos>();
+builder.Services.AddScoped<ICommentService, CommentService>();
 builder.Services.AddScoped<IUserService, UserServiceDb>();
 builder.Services.AddScoped<IAddressService, AddressServiceDb>();
 builder.Services.AddScoped<IAdminService, AdminServiceDb>();

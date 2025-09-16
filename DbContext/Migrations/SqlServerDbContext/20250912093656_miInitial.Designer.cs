@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DbContext.Migrations.SqlServerDbContext
 {
     [DbContext(typeof(MainDbContext.SqlServerDbContext))]
-    [Migration("20250909120521_miInitial")]
+    [Migration("20250912093656_miInitial")]
     partial class miInitial
     {
         /// <inheritdoc />
@@ -31,19 +31,19 @@ namespace DbContext.Migrations.SqlServerDbContext
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("AttractionId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("City")
+                        .HasMaxLength(100)
                         .HasColumnType("varchar(200)");
 
                     b.Property<string>("Country")
+                        .HasMaxLength(100)
                         .HasColumnType("varchar(200)");
 
                     b.Property<bool>("Seeded")
                         .HasColumnType("bit");
 
                     b.Property<string>("StreetAddress")
+                        .HasMaxLength(200)
                         .HasColumnType("varchar(200)");
 
                     b.Property<int>("ZipCode")
@@ -51,41 +51,39 @@ namespace DbContext.Migrations.SqlServerDbContext
 
                     b.HasKey("AddressId");
 
-                    b.HasIndex("AttractionId");
-
                     b.ToTable("AddressDbM");
                 });
 
-            modelBuilder.Entity("DbModels.CreditCardDbM", b =>
+            modelBuilder.Entity("DbModels.AttractionDbM", b =>
                 {
-                    b.Property<Guid>("CreditCardId")
+                    b.Property<Guid>("AttractionId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("CardHolderName")
+                    b.Property<string>("Address")
                         .HasColumnType("varchar(200)");
 
-                    b.Property<string>("CardNumber")
-                        .HasColumnType("varchar(200)");
-
-                    b.Property<string>("EncryptedToken")
-                        .HasColumnType("varchar(200)");
-
-                    b.Property<string>("ExpiryMonth")
-                        .HasColumnType("varchar(200)");
-
-                    b.Property<string>("ExpiryYear")
-                        .HasColumnType("varchar(200)");
-
-                    b.Property<int>("Issuer")
+                    b.Property<int>("Category")
                         .HasColumnType("int");
+
+                    b.Property<string>("City")
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<string>("Country")
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("varchar(200)");
 
                     b.Property<bool>("Seeded")
                         .HasColumnType("bit");
 
-                    b.HasKey("CreditCardId");
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
 
-                    b.ToTable("CreditCardDbM");
+                    b.HasKey("AttractionId");
+
+                    b.ToTable("AttractionDbM");
                 });
 
             modelBuilder.Entity("DbModels.UsersDbM", b =>
@@ -106,6 +104,9 @@ namespace DbContext.Migrations.SqlServerDbContext
                     b.Property<bool>("Seeded")
                         .HasColumnType("bit");
 
+                    b.Property<string>("StreetAddress")
+                        .HasColumnType("varchar(200)");
+
                     b.HasKey("UserId");
 
                     b.HasIndex("AddressId");
@@ -113,68 +114,12 @@ namespace DbContext.Migrations.SqlServerDbContext
                     b.ToTable("UsersDbM");
                 });
 
-            modelBuilder.Entity("Models.Attraction", b =>
-                {
-                    b.Property<Guid>("AttractionId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Address")
-                        .HasColumnType("varchar(200)");
-
-                    b.Property<int>("Category")
-                        .HasColumnType("int");
-
-                    b.Property<string>("City")
-                        .HasColumnType("varchar(200)");
-
-                    b.Property<string>("Country")
-                        .HasColumnType("varchar(200)");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasMaxLength(13)
-                        .HasColumnType("varchar(200)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("varchar(200)");
-
-                    b.Property<bool>("Seeded")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("Type")
-                        .HasColumnType("int");
-
-                    b.HasKey("AttractionId");
-
-                    b.ToTable("Attraction");
-
-                    b.HasDiscriminator().HasValue("Attraction");
-
-                    b.UseTphMappingStrategy();
-                });
-
-            modelBuilder.Entity("DbModels.AttractionDbM", b =>
-                {
-                    b.HasBaseType("Models.Attraction");
-
-                    b.HasDiscriminator().HasValue("AttractionDbM");
-                });
-
-            modelBuilder.Entity("DbModels.AddressDbM", b =>
-                {
-                    b.HasOne("Models.Attraction", "Attraction")
-                        .WithMany()
-                        .HasForeignKey("AttractionId");
-
-                    b.Navigation("Attraction");
-                });
-
             modelBuilder.Entity("DbModels.UsersDbM", b =>
                 {
                     b.HasOne("DbModels.AddressDbM", "AddressDbM")
                         .WithMany("UsersDbM")
-                        .HasForeignKey("AddressId");
+                        .HasForeignKey("AddressId")
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("AddressDbM");
                 });

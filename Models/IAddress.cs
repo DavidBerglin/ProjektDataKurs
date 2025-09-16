@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Identity;
-using models;
-
+using Models;
 namespace Models;
 
 public interface IAddress

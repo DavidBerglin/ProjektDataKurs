@@ -5,9 +5,9 @@ public class AttractionServiceDb : IAttractionService
 {
     private readonly AttractionDbRepos _repo = null;
 
-    public Task GetAttractionsAsync()
+    public Task GetAttractionsAsync(int number)
     {
-        return _repo.GetAttractionsAsync();
+        return _repo.GetAttractionsAsync(number);
     }
 
 

@@ -2,5 +2,5 @@ namespace Services;
 
 public interface IUserService
 {
-    public Task GetUsersAsync();
+    public Task GetUsersAsync(int number);
 }

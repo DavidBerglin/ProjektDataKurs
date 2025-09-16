@@ -1,14 +1,16 @@
 using models;
 using Models;
 using Seido.Utilities.SeedGenerator;
-namespace models;
+namespace Models;
 
 public class Users : IUsers, ISeed<Users>
 {
     public virtual Guid UserId { get; set; }
+    public virtual Guid? AddressId { get; set; }
     public virtual string FullName { get; set; }
     public virtual string Email { get; set; }
     public virtual IAddress Address { get; set; }
+    public virtual string StreetAddress { get; set; }
     public bool Seeded { get; set; } = false;
 
     public Users() { }
