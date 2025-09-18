@@ -35,9 +35,9 @@ public class AdminDbRepos
             var AttractionAddress = seeder.FromList(address);
             attraction.AddressDbM = AttractionAddress;
         }
-
-        await _dbContext.AttractionDbM.AddRangeAsync(attractions);
+        
         await _dbContext.AddressDbM.AddRangeAsync(address);
+        await _dbContext.AttractionDbM.AddRangeAsync(attractions);
         await _dbContext.UsersDbM.AddRangeAsync(users);
         await _dbContext.SaveChangesAsync();
 
