@@ -14,7 +14,7 @@ namespace DbModels
     {
         [Key]
         public override Guid CommentId { get; set; }
-        public override Guid? AttractionId { get; set; }
+        public override Guid AttractionId { get; set; }
         public override Guid UserId { get; set; }
         public override string Text { get; set; }
 
@@ -22,11 +22,14 @@ namespace DbModels
 
         [NotMapped]
         public override IAttraction Attraction { get => AttractionDbM; set => new NotImplementedException(); }
-       
+
+        [JsonIgnore]
         public AttractionDbM AttractionDbM { get; set; }
 
         [NotMapped]
         public override IUsers User { get => usersDbM; set => new NotImplementedException(); }
+
+        [JsonIgnore]
         public UsersDbM usersDbM { get; set; }
 
         public CommentDbM() { }

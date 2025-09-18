@@ -16,7 +16,6 @@ namespace DbModels
         public override Guid? AddressId { get; set; }
         public override string FullName { get; set; }
         public override string Email { get; set; }
-        public override string StreetAddress { get; set; }
 
 
 

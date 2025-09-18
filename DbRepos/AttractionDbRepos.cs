@@ -15,14 +15,14 @@ public class AttractionDbRepos
 {
     private readonly MainDbContext _dbContext;
 
-    public async Task GetAttractionsAsync(int number)
+    public async Task<List<IAttraction>>ReadAttractionAsync(int number)
     {
-        var g = new SeedGenerator();
-
-        _dbContext.AttractionDbM.RemoveRange(_dbContext.AttractionDbM);
-        var attractions = g.UniqueItemsToList<AttractionDbM>(number);
-        await _dbContext.AttractionDbM.AddRangeAsync(attractions);
-        await _dbContext.SaveChangesAsync();
+        return await _dbContext.AttractionDbM
+        .AsNoTracking()
+        .Include(a => a.AddressDbM)
+        .Take(number)
+        .Cast<IAttraction>()
+        .ToListAsync();
     }
 
     public AttractionDbRepos(MainDbContext context)

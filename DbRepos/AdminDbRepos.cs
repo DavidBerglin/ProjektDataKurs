@@ -7,6 +7,7 @@ using DbModels;
 using DbContext;
 using Configuration;
 using Microsoft.VisualBasic;
+using Models;
 
 namespace DbRepos;
 
@@ -19,27 +20,45 @@ public class AdminDbRepos
 
     public async Task SeedAsync(int number)
     {
-        //Create a seeder
         var seeder = new SeedGenerator();
 
         var address = seeder.ItemsToList<AddressDbM>(number);
         var users = seeder.ItemsToList<UsersDbM>(number);
         var attractions = seeder.ItemsToList<AttractionDbM>(number);
-        var comments = seeder.ItemsToList<CommentDbM>(number);
-
+        // loopa över varje user och sätt en address till varje. 
         foreach (var user in users)
         {
-            user.AddressDbM = (seeder.Bool) ? seeder.FromList(address) : null;
+            user.AddressDbM = seeder.Bool ? seeder.FromList(address) : null;
+        }
+        foreach (var attraction in attractions)
+        {
+            var AttractionAddress = seeder.FromList(address);
+            attraction.AddressDbM = AttractionAddress;
         }
 
         await _dbContext.AttractionDbM.AddRangeAsync(attractions);
         await _dbContext.AddressDbM.AddRangeAsync(address);
         await _dbContext.UsersDbM.AddRangeAsync(users);
-        
+        await _dbContext.SaveChangesAsync();
 
+        var comment = new List<CommentDbM>();
+        foreach (var c in attractions)
+        {
+            int n = seeder.Next(0, 21);
+            for (int i = 0; i < n; i++)
+            {
+                var u = seeder.FromList(users);
+                comment.Add(new CommentDbM
+                {
+                    CommentId = Guid.NewGuid(),
+                    Text = seeder.LatinSentence,
+                    UserId = u.UserId,
+                    AttractionId = c.AttractionId,
+                });
+            }
+        }
 
-
-        //Save changes to the database
+        await _dbContext.CommentDbM.AddRangeAsync(comment);
         await _dbContext.SaveChangesAsync();
     }
 

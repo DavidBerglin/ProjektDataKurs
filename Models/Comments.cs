@@ -10,7 +10,7 @@ public class Comment : IComments, ISeed<Comment>
     public virtual Guid UserId { get; set; }
     public virtual IUsers User { get; set; }
 
-    public virtual Guid? AttractionId { get; set; }
+    public virtual Guid AttractionId { get; set; }
 
     public virtual IAttraction Attraction { get; set; }
 

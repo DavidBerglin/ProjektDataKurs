@@ -1,6 +1,8 @@
+using Models;
+
 namespace Services;
 
 public interface IUserService
 {
-    public Task GetUsersAsync(int number);
+    public Task<List<IUsers>> ReadUsersAsync(int number);
 }

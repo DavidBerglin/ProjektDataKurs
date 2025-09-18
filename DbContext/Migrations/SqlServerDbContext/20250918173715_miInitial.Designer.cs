@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DbContext.Migrations.SqlServerDbContext
 {
     [DbContext(typeof(MainDbContext.SqlServerDbContext))]
-    [Migration("20250912093656_miInitial")]
+    [Migration("20250918173715_miInitial")]
     partial class miInitial
     {
         /// <inheritdoc />
@@ -60,8 +60,8 @@ namespace DbContext.Migrations.SqlServerDbContext
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Address")
-                        .HasColumnType("varchar(200)");
+                    b.Property<Guid>("AddressId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Category")
                         .HasColumnType("int");
@@ -70,6 +70,9 @@ namespace DbContext.Migrations.SqlServerDbContext
                         .HasColumnType("varchar(200)");
 
                     b.Property<string>("Country")
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<string>("Description")
                         .HasColumnType("varchar(200)");
 
                     b.Property<string>("Name")
@@ -83,7 +86,43 @@ namespace DbContext.Migrations.SqlServerDbContext
 
                     b.HasKey("AttractionId");
 
+                    b.HasIndex("AddressId")
+                        .IsUnique();
+
                     b.ToTable("AttractionDbM");
+                });
+
+            modelBuilder.Entity("DbModels.CommentDbM", b =>
+                {
+                    b.Property<Guid>("CommentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("AttractionDbMAttractionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AttractionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Seeded")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("usersDbMUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("CommentId");
+
+                    b.HasIndex("AttractionDbMAttractionId");
+
+                    b.HasIndex("usersDbMUserId");
+
+                    b.ToTable("CommentDbM");
                 });
 
             modelBuilder.Entity("DbModels.UsersDbM", b =>
@@ -104,14 +143,37 @@ namespace DbContext.Migrations.SqlServerDbContext
                     b.Property<bool>("Seeded")
                         .HasColumnType("bit");
 
-                    b.Property<string>("StreetAddress")
-                        .HasColumnType("varchar(200)");
-
                     b.HasKey("UserId");
 
                     b.HasIndex("AddressId");
 
                     b.ToTable("UsersDbM");
+                });
+
+            modelBuilder.Entity("DbModels.AttractionDbM", b =>
+                {
+                    b.HasOne("DbModels.AddressDbM", "AddressDbM")
+                        .WithOne("AttractionDbM")
+                        .HasForeignKey("DbModels.AttractionDbM", "AddressId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AddressDbM");
+                });
+
+            modelBuilder.Entity("DbModels.CommentDbM", b =>
+                {
+                    b.HasOne("DbModels.AttractionDbM", "AttractionDbM")
+                        .WithMany("CommentDbM")
+                        .HasForeignKey("AttractionDbMAttractionId");
+
+                    b.HasOne("DbModels.UsersDbM", "usersDbM")
+                        .WithMany()
+                        .HasForeignKey("usersDbMUserId");
+
+                    b.Navigation("AttractionDbM");
+
+                    b.Navigation("usersDbM");
                 });
 
             modelBuilder.Entity("DbModels.UsersDbM", b =>
@@ -126,7 +188,14 @@ namespace DbContext.Migrations.SqlServerDbContext
 
             modelBuilder.Entity("DbModels.AddressDbM", b =>
                 {
+                    b.Navigation("AttractionDbM");
+
                     b.Navigation("UsersDbM");
+                });
+
+            modelBuilder.Entity("DbModels.AttractionDbM", b =>
+                {
+                    b.Navigation("CommentDbM");
                 });
 #pragma warning restore 612, 618
         }

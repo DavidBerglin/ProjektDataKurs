@@ -30,6 +30,8 @@ namespace AppWebApi.Controllers
         readonly AttractionDbRepos _Arepos;
         readonly IUserService _UserService;
         readonly UserDbRepos _UserRepos;
+        readonly CommentDbRepos _CommentRepos;
+        readonly ICommentService _CommentService;
 
         readonly AdminDbRepos _repos;
 
@@ -85,21 +87,21 @@ namespace AppWebApi.Controllers
         }
 
         [HttpPost()]
-        [ActionName("SeedAttraction")]
-        [ProducesResponseType(200, Type = typeof(string))]
+        [ActionName("Read attraction")]
+        [ProducesResponseType(200, Type = typeof(IAttraction))]
         [ProducesResponseType(400, Type = typeof(string))]
 
-        public async Task<IActionResult> SeedAttraction([FromQuery]int number)
+        public async Task<IActionResult> ReadAttraction([FromQuery]int number)
         {
 
-            await _Aservice.GetAttractionsAsync(number);
-            return Ok($"Seeded {number} attractions");
+            var respons  = await _Aservice.ReadAttractionAsync(number);
+            return Ok(respons);
 
 
         }
 
         [HttpPost]
-        [ActionName("ReadAddress")]
+        [ActionName("Read address")]
         [ProducesResponseType(200, Type = typeof(IAddress))]
         [ProducesResponseType(400, Type = typeof(string))]
         public async Task<IActionResult> ReadAddress([FromQuery]int number)
@@ -108,11 +110,23 @@ namespace AppWebApi.Controllers
             return Ok(respons);
         }
 
-         [HttpPost("SeedUser")]
-        public async Task<IActionResult> SeedUser([FromQuery]int number)
+        [HttpPost]
+        [ActionName("Read comment")]
+        [ProducesResponseType(200, Type = typeof(IComments))]
+        [ProducesResponseType(400, Type = typeof(string))]
+        public async Task<IActionResult> ReadComment([FromQuery]int number)
         {
-            await _UserService.GetUsersAsync(number);
-            return Ok($"{number} users seeded");
+            var respons = await _CommentService.ReadCommentsAsync(number);
+            return Ok(respons);
+        }
+
+        [HttpPost("Read user")]
+        [ProducesResponseType(200, Type = typeof(IUsers))]
+        [ProducesResponseType(400, Type = typeof(string))]
+        public async Task<IActionResult> ReadUser([FromQuery] int number)
+        {
+            var respons = await _UserService.ReadUsersAsync(number);
+            return Ok(respons);
         }
 
         //GET: api/admin/log
@@ -129,7 +143,7 @@ namespace AppWebApi.Controllers
             return Ok("No messages in log");
         }
 
-    
+
 
         public AdminController(IAdminService service,
             ILogger<AdminController> logger,
@@ -141,7 +155,9 @@ namespace AppWebApi.Controllers
             IAddressService AddService,
             AddressDbRepos AddRepos,
             UserDbRepos UserRepos,
-            IUserService UserService)
+            IUserService UserService,
+            CommentDbRepos CommentRepos,
+            ICommentService CommentService)
         {
             _service = service;
             _logger = logger;
@@ -154,6 +170,8 @@ namespace AppWebApi.Controllers
             _AddRepos = AddRepos;
             _UserRepos = UserRepos;
             _UserService = UserService;
+            _CommentRepos = CommentRepos;
+            _CommentService = CommentService;
         }
     }
 }

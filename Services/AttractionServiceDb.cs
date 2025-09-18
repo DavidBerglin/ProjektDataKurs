@@ -1,13 +1,14 @@
 using DbRepos;
+using Models;
 namespace Services;
 
 public class AttractionServiceDb : IAttractionService
 {
     private readonly AttractionDbRepos _repo = null;
 
-    public Task GetAttractionsAsync(int number)
+    public Task<List<IAttraction>> ReadAttractionAsync(int number)
     {
-        return _repo.GetAttractionsAsync(number);
+        return _repo.ReadAttractionAsync(number);
     }
 
 

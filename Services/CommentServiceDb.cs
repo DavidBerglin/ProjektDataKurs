@@ -3,14 +3,14 @@ using Models;
 namespace Services
 {
 
-    public class CommentService : ICommentService
+    public class CommentServiceDb : ICommentService
     {
-        private readonly CommentService _repo = null;
+        private readonly CommentDbRepos _repo = null;
         public Task<List<IComments>> ReadCommentsAsync(int number)
         {
             return _repo.ReadCommentsAsync(number);
         }
-        public CommentService(CommentService repo)
+        public CommentServiceDb(CommentDbRepos repo)
         {
             _repo = repo;
         }

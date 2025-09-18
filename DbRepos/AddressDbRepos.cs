@@ -21,6 +21,7 @@ public class AddressDbRepos
     {
          return await _dbContext.AddressDbM
         .AsNoTracking()
+        .Include(c => c.UsersDbM)
         .Take(number)
         .Cast<IAddress>()
         .ToListAsync();

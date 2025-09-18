@@ -7,6 +7,7 @@ using DbModels;
 using Microsoft.Extensions.Hosting.Internal;
 using DbContext.Extensions;
 using Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace DbContext;
 
@@ -29,7 +30,7 @@ public class MainDbContext : Microsoft.EntityFrameworkCore.DbContext
     public DbSet<AttractionDbM> AttractionDbM { get; set;}
     public DbSet<AddressDbM> AddressDbM { get; set; }
     public DbSet<UsersDbM> UsersDbM { get; set; }
-    public DbSet<CommentDbM> CommentsDbM { get; set; }
+    public DbSet<CommentDbM> CommentDbM { get; set; }
     #endregion
 
     #region constructors
@@ -56,11 +57,12 @@ public class MainDbContext : Microsoft.EntityFrameworkCore.DbContext
         b.HasOne(u => u.AddressDbM)
          .WithMany(a => a.UsersDbM)
          .HasForeignKey(u => u.AddressId)
-         .OnDelete(DeleteBehavior.SetNull); // om adress tas bort, nolla FK på users
+         .OnDelete(DeleteBehavior.SetNull);
     });
 
+
     // Address
-    modelBuilder.Entity<AddressDbM>(b =>
+        modelBuilder.Entity<AddressDbM>(b =>
     {
         b.HasKey(a => a.AddressId);
         b.Property(a => a.StreetAddress).HasMaxLength(200);
@@ -69,11 +71,12 @@ public class MainDbContext : Microsoft.EntityFrameworkCore.DbContext
         
     });
 
-    // Attraction
-    modelBuilder.Entity<AttractionDbM>(b =>
-    {
-        b.HasKey(a => a.AttractionId);
-    });
+        // Attraction
+        modelBuilder.Entity<AttractionDbM>()
+        .HasOne(a => a.AddressDbM)
+        .WithOne(addr => addr.AttractionDbM)
+        .HasForeignKey<AttractionDbM>(a => a.AddressId);
+    
     }
         
   

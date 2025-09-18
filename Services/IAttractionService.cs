@@ -1,6 +1,8 @@
+using Models;
+
 namespace Services;
 
 public interface IAttractionService
 {
-   public Task GetAttractionsAsync(int number);
+   public Task<List<IAttraction>> ReadAttractionAsync(int number);
 }

@@ -19,12 +19,13 @@ public class CommentDbRepos
 
     public async Task<List<IComments>> ReadCommentsAsync(int number)
     {
-         return await _dbContext.CommentsDbM
+      return await _dbContext.CommentDbM
         .AsNoTracking()
+        .Include(c => c.usersDbM)          
+        .Include(c => c.AttractionDbM)    
         .Take(number)
         .Cast<IComments>()
         .ToListAsync();
-      
     }
     public CommentDbRepos(MainDbContext context)
     {
