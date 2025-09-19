@@ -33,7 +33,7 @@ namespace Models
             Description = rnd.FromString("Great place, Lovely stop, Beautiful spot, Great value");
             Type = rnd.FromEnum<AttractionType>();
             Category = Type.GetCategory();
-            Name = $"{rnd.LastName}'s {Type} of {City}";
+            Name = $"{rnd.LastName}'s {Type} of {rnd.FromString("Greenhill, Riverside, Fairview, Lakeside, Southgate, Ashford, Springvale")}";
             return this;
 
         }
