@@ -25,7 +25,7 @@ public class Comment : IComments, ISeed<Comment>
     public virtual Comment Seed(SeedGenerator seeder)
     {
         CommentId = Guid.NewGuid();
-        Text = seeder.LatinSentence;
+        Text = seeder.Quote.Quote;
         return this;
     }
 

@@ -34,6 +34,8 @@ public class AdminDbRepos
         {
             var AttractionAddress = seeder.FromList(address);
             attraction.AddressDbM = AttractionAddress;
+            attraction.City = AttractionAddress.City;
+            attraction.Country = AttractionAddress.Country;
         }
         
         await _dbContext.AddressDbM.AddRangeAsync(address);
@@ -50,10 +52,12 @@ public class AdminDbRepos
                 var u = seeder.FromList(users);
                 comment.Add(new CommentDbM
                 {
+                    Seeded = true,
                     CommentId = Guid.NewGuid(),
-                    Text = seeder.LatinSentence,
+                    Text = seeder.Quote.Quote,
                     UserId = u.UserId,
                     AttractionId = c.AttractionId,
+                    
                 });
             }
         }

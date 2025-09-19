@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Services\\Services.csproj": {}
+    "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Services\\Services.csproj": {}
   },
   "projects": {
-    "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Configuration\\Configuration.csproj": {
+    "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Configuration\\Configuration.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Configuration\\Configuration.csproj",
+        "projectUniqueName": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Configuration\\Configuration.csproj",
         "projectName": "Configuration",
-        "projectPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Configuration\\Configuration.csproj",
-        "packagesPath": "C:\\Users\\davva\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Configuration\\obj\\",
+        "projectPath": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Configuration\\Configuration.csproj",
+        "packagesPath": "C:\\Users\\Dave\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Configuration\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\davva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dave\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -124,20 +124,20 @@
         }
       }
     },
-    "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\DbContext\\DbContext.csproj": {
+    "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\DbContext\\DbContext.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\DbContext\\DbContext.csproj",
+        "projectUniqueName": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\DbContext\\DbContext.csproj",
         "projectName": "DbContext",
-        "projectPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\DbContext\\DbContext.csproj",
-        "packagesPath": "C:\\Users\\davva\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\DbContext\\obj\\",
+        "projectPath": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\DbContext\\DbContext.csproj",
+        "packagesPath": "C:\\Users\\Dave\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\DbContext\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\davva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dave\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -153,11 +153,11 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Configuration\\Configuration.csproj": {
-                "projectPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Configuration\\Configuration.csproj"
+              "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Configuration\\Configuration.csproj": {
+                "projectPath": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Configuration\\Configuration.csproj"
               },
-              "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\DbModels\\DbModels.csproj": {
-                "projectPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\DbModels\\DbModels.csproj"
+              "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\DbModels\\DbModels.csproj": {
+                "projectPath": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\DbModels\\DbModels.csproj"
               }
             }
           }
@@ -243,20 +243,20 @@
         }
       }
     },
-    "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\DbModels\\DbModels.csproj": {
+    "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\DbModels\\DbModels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\DbModels\\DbModels.csproj",
+        "projectUniqueName": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\DbModels\\DbModels.csproj",
         "projectName": "DbModels",
-        "projectPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\DbModels\\DbModels.csproj",
-        "packagesPath": "C:\\Users\\davva\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\DbModels\\obj\\",
+        "projectPath": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\DbModels\\DbModels.csproj",
+        "packagesPath": "C:\\Users\\Dave\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\DbModels\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\davva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dave\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -272,11 +272,11 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Configuration\\Configuration.csproj": {
-                "projectPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Configuration\\Configuration.csproj"
+              "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Configuration\\Configuration.csproj": {
+                "projectPath": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Configuration\\Configuration.csproj"
               },
-              "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Models\\Models.csproj": {
-                "projectPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Models\\Models.csproj"
+              "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Models\\Models.csproj"
               }
             }
           }
@@ -330,20 +330,20 @@
         }
       }
     },
-    "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\DbRepos\\DbRepos.csproj": {
+    "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\DbRepos\\DbRepos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\DbRepos\\DbRepos.csproj",
+        "projectUniqueName": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\DbRepos\\DbRepos.csproj",
         "projectName": "DbRepos",
-        "projectPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\DbRepos\\DbRepos.csproj",
-        "packagesPath": "C:\\Users\\davva\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\DbRepos\\obj\\",
+        "projectPath": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\DbRepos\\DbRepos.csproj",
+        "packagesPath": "C:\\Users\\Dave\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\DbRepos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\davva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dave\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -359,14 +359,14 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Configuration\\Configuration.csproj": {
-                "projectPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Configuration\\Configuration.csproj"
+              "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Configuration\\Configuration.csproj": {
+                "projectPath": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Configuration\\Configuration.csproj"
               },
-              "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\DbContext\\DbContext.csproj": {
-                "projectPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\DbContext\\DbContext.csproj"
+              "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\DbContext\\DbContext.csproj": {
+                "projectPath": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\DbContext\\DbContext.csproj"
               },
-              "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\DbModels\\DbModels.csproj": {
-                "projectPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\DbModels\\DbModels.csproj"
+              "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\DbModels\\DbModels.csproj": {
+                "projectPath": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\DbModels\\DbModels.csproj"
               }
             }
           }
@@ -406,20 +406,20 @@
         }
       }
     },
-    "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Models\\Models.csproj": {
+    "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Models\\Models.csproj",
+        "projectUniqueName": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Models\\Models.csproj",
-        "packagesPath": "C:\\Users\\davva\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Models\\obj\\",
+        "projectPath": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Models\\Models.csproj",
+        "packagesPath": "C:\\Users\\Dave\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\davva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dave\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -435,8 +435,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Configuration\\Configuration.csproj": {
-                "projectPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Configuration\\Configuration.csproj"
+              "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Configuration\\Configuration.csproj": {
+                "projectPath": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Configuration\\Configuration.csproj"
               }
             }
           }
@@ -482,20 +482,20 @@
         }
       }
     },
-    "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Services\\Services.csproj": {
+    "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Services\\Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Services\\Services.csproj",
+        "projectUniqueName": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Services\\Services.csproj",
         "projectName": "Services",
-        "projectPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Services\\Services.csproj",
-        "packagesPath": "C:\\Users\\davva\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Services\\obj\\",
+        "projectPath": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Services\\Services.csproj",
+        "packagesPath": "C:\\Users\\Dave\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\davva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dave\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -511,14 +511,14 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Configuration\\Configuration.csproj": {
-                "projectPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Configuration\\Configuration.csproj"
+              "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Configuration\\Configuration.csproj": {
+                "projectPath": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Configuration\\Configuration.csproj"
               },
-              "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\DbRepos\\DbRepos.csproj": {
-                "projectPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\DbRepos\\DbRepos.csproj"
+              "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\DbRepos\\DbRepos.csproj": {
+                "projectPath": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\DbRepos\\DbRepos.csproj"
               },
-              "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Models\\Models.csproj": {
-                "projectPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Models\\Models.csproj"
+              "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Models\\Models.csproj"
               }
             }
           }
