@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Configuration\\Configuration.csproj": {}
+    "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Configuration\\Configuration.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Configuration\\Configuration.csproj": {
+    "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Configuration\\Configuration.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Configuration\\Configuration.csproj",
+        "projectUniqueName": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Configuration\\Configuration.csproj",
         "projectName": "Configuration",
-        "projectPath": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Configuration\\Configuration.csproj",
-        "packagesPath": "C:\\Users\\Dave\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dave\\Desktop\\CODE\\ProjektDataKurs\\Configuration\\obj\\",
+        "projectPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Configuration\\Configuration.csproj",
+        "packagesPath": "C:\\Users\\davva\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Configuration\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Dave\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\davva\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

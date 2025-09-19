@@ -41,17 +41,31 @@ public class AttractionDbRepos
             };
         }
         
-    } 
-     public async Task<List<IAttraction>>ReadAttraction(int number)
+    }
+    public async Task<List<IAttraction>> ReadAttraction(int number, bool comment)
     {
-        return await _dbContext.AttractionDbM
+        if (comment)
+        {
+            return await _dbContext.AttractionDbM
+            .AsNoTracking()
+            .Include(a => a.AddressDbM)
+            .Include(a => a.CommentDbM)
+                .ThenInclude(c => c.UsersDbM)
+            .Take(number)
+            .Cast<IAttraction>()
+            .ToListAsync();
+        }
+        else
+        {
+             return await _dbContext.AttractionDbM
         .AsNoTracking()
         .Include(a => a.AddressDbM)
         .Include(a => a.CommentDbM)
             .ThenInclude(c => c.UsersDbM)
-        .Take(number)
+        .Where(i => !i.CommentDbM.Any())
         .Cast<IAttraction>()
         .ToListAsync();
+        }
     }
      public async Task<List<IAttraction>>ReadAttractionNoComment()
     {

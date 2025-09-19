@@ -101,13 +101,13 @@ public class MainDbContext : Microsoft.EntityFrameworkCore.DbContext
             
             // Comment -> User (Many-to-One)
             entity.HasOne(c => c.UsersDbM)
-                  .WithMany() // No navigation property back to comments in User
+                  .WithMany()
                   .HasForeignKey(c => c.UserId)
                   .OnDelete(DeleteBehavior.Cascade);
             
             // Comment -> Attraction (Many-to-One)
             entity.HasOne(c => c.AttractionDbM)
-                  .WithMany(a => a.CommentDbM) // Attraction has many comments
+                  .WithMany(a => a.CommentDbM)
                   .HasForeignKey(c => c.AttractionId)
                   .OnDelete(DeleteBehavior.Cascade);
         });

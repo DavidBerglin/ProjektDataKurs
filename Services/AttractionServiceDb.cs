@@ -8,7 +8,7 @@ public class AttractionServiceDb : IAttractionService
     private readonly AttractionDbRepos _repo = null;
 
     public Task<ResponsDTOItem<IAttraction>> ReadAttractionsAsync(Guid id, bool flat) => _repo.ReadAttractionsAsync(id, flat);
-    public Task<List<IAttraction>> ReadAttraction(int number) => _repo.ReadAttraction(number);
+    public Task<List<IAttraction>> ReadAttraction(int number, bool comment) => _repo.ReadAttraction(number,comment);
 
     public Task<List<IAttraction>> ReadAttractionNoComment() => _repo.ReadAttractionNoComment();
  

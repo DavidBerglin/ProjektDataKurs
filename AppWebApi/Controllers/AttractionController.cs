@@ -10,6 +10,8 @@ using Microsoft.Extensions.Options;
 using DbRepos;
 using DbModels;
 using Models;
+using System.ComponentModel;
+using System.Xml;
 
 
 namespace AppWebApi.Controllers
@@ -42,16 +44,28 @@ namespace AppWebApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpPost("Read attraction")]
+        [HttpGet]
+        [ActionName("Read attraction")]
         [ProducesResponseType(200, Type = typeof(IAttraction))]
         [ProducesResponseType(400, Type = typeof(string))]
-        public async Task<IActionResult> ReadAttractionALL([FromQuery] int number)
+        public async Task<IActionResult> ReadAttractionALL(
+            [FromQuery][DefaultValue(10)] int number,
+            [Description("If true, includes comments")] bool comment = false)
         {
-            var respons = await _Aservice.ReadAttraction(number);
-            return Ok(respons);
+            try
+            {
+                var respons = await _Aservice.ReadAttraction(number, comment);
+                return Ok(respons);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+           
         }
     
-        [HttpPost("Attractions without comment")]
+        [HttpPost]
+        [ActionName("Attraction no comment")]
         [ProducesResponseType(200, Type = typeof(IAttraction))]
         [ProducesResponseType(400, Type = typeof(string))]
         public async Task<IActionResult> ReadAttractionNoComment()
