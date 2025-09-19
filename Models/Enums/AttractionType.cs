@@ -9,10 +9,12 @@ public enum AttractionType
     Hiking,
     Camping,
 
-    // Monuments, History
+    // Monuments
     Castle,
-    Museum,
     Monuments,
+
+    //History
+    Museum,
     Church,
 
     // City
@@ -27,8 +29,7 @@ public enum AttractionType
     Theather,
     Stadium,
 
-    // Food and drinks
-
+    // Food 
     Cafe,
     Bakery,
     Brewery,

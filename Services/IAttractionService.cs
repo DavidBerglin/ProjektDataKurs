@@ -1,8 +1,11 @@
 using Models;
+using Models.DTO;
 
 namespace Services;
 
 public interface IAttractionService
 {
-   public Task<List<IAttraction>> ReadAttractionAsync(int number);
+   public Task<ResponsDTOItem<IAttraction>> ReadAttractionsAsync(Guid id, bool flat);
+   public Task<List<IAttraction>> ReadAttraction(int number);
+   public Task<List<IAttraction>> ReadAttractionNoComment();
 }

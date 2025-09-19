@@ -21,7 +21,7 @@ public class CommentDbRepos
     {
       return await _dbContext.CommentDbM
         .AsNoTracking()
-        .Include(c => c.usersDbM)          
+        .Include(c => c.UsersDbM)          
         .Include(c => c.AttractionDbM)    
         .Take(number)
         .Cast<IComments>()

@@ -1,7 +1,7 @@
 using System;
 
 namespace Models.Enums;
-
+// Experiment med extension method, kopplar type till category med en switch
 public static class AttractionTypeExtensions
 {
     public static AttractionCategory GetCategory(this AttractionType type)
@@ -13,11 +13,12 @@ public static class AttractionTypeExtensions
             AttractionType.Beach => AttractionCategory.Nature,
             AttractionType.Hiking => AttractionCategory.Nature,
             AttractionType.Camping => AttractionCategory.Nature,
-            //Monuments History
-            AttractionType.Castle => AttractionCategory.MonumentsAndHistory,
-            AttractionType.Museum => AttractionCategory.MonumentsAndHistory,
-            AttractionType.Monuments => AttractionCategory.MonumentsAndHistory,
-            AttractionType.Church => AttractionCategory.MonumentsAndHistory,
+            //Monuments
+            AttractionType.Castle => AttractionCategory.Monuments,
+            AttractionType.Monuments => AttractionCategory.Monuments,
+            //History
+            AttractionType.Museum => AttractionCategory.History,
+            AttractionType.Church => AttractionCategory.History,
             // City
             AttractionType.Buildings => AttractionCategory.City,
             AttractionType.Bridge => AttractionCategory.City,
@@ -28,10 +29,10 @@ public static class AttractionTypeExtensions
             AttractionType.Theather => AttractionCategory.Entertainment,
             AttractionType.Stadium => AttractionCategory.Entertainment,
             // Food and drinks
-            AttractionType.Cafe => AttractionCategory.FoodAndDrinks,
-            AttractionType.Bakery => AttractionCategory.FoodAndDrinks,
-            AttractionType.Brewery => AttractionCategory.FoodAndDrinks,
-            AttractionType.Restaurant => AttractionCategory.FoodAndDrinks,
+            AttractionType.Cafe => AttractionCategory.Food,
+            AttractionType.Bakery => AttractionCategory.Food,
+            AttractionType.Brewery => AttractionCategory.Food,
+            AttractionType.Restaurant => AttractionCategory.Food,
             _ => throw new ArgumentOutOfRangeException(nameof(type), $"No category mapped for {type}")
         };
     }

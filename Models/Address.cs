@@ -11,8 +11,7 @@ public abstract class Address : IAddress, IEquatable<Address>, ISeed<Address>
     public virtual string City { get; set; }
     public virtual string Country { get; set; }
     public virtual int ZipCode { get; set; }
-
-    public Attraction Attraction { get; set; }
+    public virtual IAttraction Attraction { get; set; }
     public virtual List<IUsers> Users { get; set; } = null;
 
     public bool Seeded { get; set; } = false;

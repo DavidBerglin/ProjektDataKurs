@@ -70,9 +70,12 @@ namespace DbContext.Migrations.SqlServerDbContext
                         .HasColumnType("varchar(200)");
 
                     b.Property<string>("Description")
+                        .HasMaxLength(1000)
                         .HasColumnType("varchar(200)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200)
                         .HasColumnType("varchar(200)");
 
                     b.Property<bool>("Seeded")
@@ -95,9 +98,6 @@ namespace DbContext.Migrations.SqlServerDbContext
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("AttractionDbMAttractionId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("AttractionId")
                         .HasColumnType("uniqueidentifier");
 
@@ -105,19 +105,18 @@ namespace DbContext.Migrations.SqlServerDbContext
                         .HasColumnType("bit");
 
                     b.Property<string>("Text")
+                        .IsRequired()
+                        .HasMaxLength(1000)
                         .HasColumnType("varchar(200)");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("usersDbMUserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("CommentId");
 
-                    b.HasIndex("AttractionDbMAttractionId");
+                    b.HasIndex("AttractionId");
 
-                    b.HasIndex("usersDbMUserId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("CommentDbM");
                 });
@@ -132,9 +131,13 @@ namespace DbContext.Migrations.SqlServerDbContext
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(250)
                         .HasColumnType("varchar(200)");
 
                     b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasMaxLength(200)
                         .HasColumnType("varchar(200)");
 
                     b.Property<bool>("Seeded")
@@ -162,15 +165,19 @@ namespace DbContext.Migrations.SqlServerDbContext
                 {
                     b.HasOne("DbModels.AttractionDbM", "AttractionDbM")
                         .WithMany("CommentDbM")
-                        .HasForeignKey("AttractionDbMAttractionId");
+                        .HasForeignKey("AttractionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("DbModels.UsersDbM", "usersDbM")
+                    b.HasOne("DbModels.UsersDbM", "UsersDbM")
                         .WithMany()
-                        .HasForeignKey("usersDbMUserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("AttractionDbM");
 
-                    b.Navigation("usersDbM");
+                    b.Navigation("UsersDbM");
                 });
 
             modelBuilder.Entity("DbModels.UsersDbM", b =>

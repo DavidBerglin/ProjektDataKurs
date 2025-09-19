@@ -14,23 +14,21 @@ namespace DbModels
     {
         [Key]
         public override Guid CommentId { get; set; }
-        public override Guid AttractionId { get; set; }
-        public override Guid UserId { get; set; }
+        public Guid AttractionId { get; set; }
+        public Guid UserId { get; set; }
         public override string Text { get; set; }
 
-
-
         [NotMapped]
-        public override IAttraction Attraction { get => AttractionDbM; set => new NotImplementedException(); }
-
         [JsonIgnore]
+        public override IAttraction Attraction { get => AttractionDbM; set => new NotImplementedException(); }
+        [ForeignKey("AttractionId")]
         public AttractionDbM AttractionDbM { get; set; }
 
         [NotMapped]
-        public override IUsers User { get => usersDbM; set => new NotImplementedException(); }
-
         [JsonIgnore]
-        public UsersDbM usersDbM { get; set; }
+        public override IUsers User { get => UsersDbM; set => new NotImplementedException(); }
+        [ForeignKey("UserId")]
+        public UsersDbM UsersDbM { get; set; }
 
         public CommentDbM() { }
 

@@ -33,8 +33,8 @@ namespace DbContext.Migrations.SqlServerDbContext
                 {
                     AttractionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     AddressId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "varchar(200)", nullable: true),
-                    Description = table.Column<string>(type: "varchar(200)", nullable: true),
+                    Name = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: false),
+                    Description = table.Column<string>(type: "varchar(200)", maxLength: 1000, nullable: true),
                     City = table.Column<string>(type: "varchar(200)", nullable: true),
                     Country = table.Column<string>(type: "varchar(200)", nullable: true),
                     Type = table.Column<int>(type: "int", nullable: false),
@@ -58,8 +58,8 @@ namespace DbContext.Migrations.SqlServerDbContext
                 {
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     AddressId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    FullName = table.Column<string>(type: "varchar(200)", nullable: true),
-                    Email = table.Column<string>(type: "varchar(200)", nullable: true),
+                    FullName = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: false),
+                    Email = table.Column<string>(type: "varchar(200)", maxLength: 250, nullable: false),
                     Seeded = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -80,24 +80,24 @@ namespace DbContext.Migrations.SqlServerDbContext
                     CommentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     AttractionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Text = table.Column<string>(type: "varchar(200)", nullable: true),
-                    AttractionDbMAttractionId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    usersDbMUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    Text = table.Column<string>(type: "varchar(200)", maxLength: 1000, nullable: false),
                     Seeded = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CommentDbM", x => x.CommentId);
                     table.ForeignKey(
-                        name: "FK_CommentDbM_AttractionDbM_AttractionDbMAttractionId",
-                        column: x => x.AttractionDbMAttractionId,
+                        name: "FK_CommentDbM_AttractionDbM_AttractionId",
+                        column: x => x.AttractionId,
                         principalTable: "AttractionDbM",
-                        principalColumn: "AttractionId");
+                        principalColumn: "AttractionId",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CommentDbM_UsersDbM_usersDbMUserId",
-                        column: x => x.usersDbMUserId,
+                        name: "FK_CommentDbM_UsersDbM_UserId",
+                        column: x => x.UserId,
                         principalTable: "UsersDbM",
-                        principalColumn: "UserId");
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -107,14 +107,14 @@ namespace DbContext.Migrations.SqlServerDbContext
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_CommentDbM_AttractionDbMAttractionId",
+                name: "IX_CommentDbM_AttractionId",
                 table: "CommentDbM",
-                column: "AttractionDbMAttractionId");
+                column: "AttractionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CommentDbM_usersDbMUserId",
+                name: "IX_CommentDbM_UserId",
                 table: "CommentDbM",
-                column: "usersDbMUserId");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UsersDbM_AddressId",

@@ -48,36 +48,72 @@ public class MainDbContext : Microsoft.EntityFrameworkCore.DbContext
         #endregion
 
         base.OnModelCreating(modelBuilder);
-            modelBuilder.Ignore<Models.Attraction>();
-
-
-        modelBuilder.Entity<UsersDbM>(b =>
-    {
-        b.HasKey(u => u.UserId);
-        b.HasOne(u => u.AddressDbM)
-         .WithMany(a => a.UsersDbM)
-         .HasForeignKey(u => u.AddressId)
-         .OnDelete(DeleteBehavior.SetNull);
-    });
-
-
-    // Address
-        modelBuilder.Entity<AddressDbM>(b =>
-    {
-        b.HasKey(a => a.AddressId);
-        b.Property(a => a.StreetAddress).HasMaxLength(200);
-        b.Property(a => a.City).HasMaxLength(100);
-        b.Property(a => a.Country).HasMaxLength(100);
         
-    });
+        // Ignore base model classes
+        modelBuilder.Ignore<Models.Attraction>();
+        modelBuilder.Ignore<Models.Address>();
+        modelBuilder.Ignore<Models.Users>();
+        modelBuilder.Ignore<Models.Comment>();
 
-        // Attraction
-        modelBuilder.Entity<AttractionDbM>()
-        .HasOne(a => a.AddressDbM)
-        .WithOne(addr => addr.AttractionDbM)
-        .HasForeignKey<AttractionDbM>(a => a.AddressId);
-    
+        // Address Configuration
+        modelBuilder.Entity<AddressDbM>(entity =>
+        {
+            entity.HasKey(a => a.AddressId);
+            entity.Property(a => a.StreetAddress).HasMaxLength(200);
+            entity.Property(a => a.City).HasMaxLength(100);
+            entity.Property(a => a.Country).HasMaxLength(100);
+            entity.Property(a => a.ZipCode).IsRequired();
+        });
+
+        // Users Configuration
+        modelBuilder.Entity<UsersDbM>(entity =>
+        {
+            entity.HasKey(u => u.UserId);
+            entity.Property(u => u.FullName).HasMaxLength(200).IsRequired();
+            entity.Property(u => u.Email).HasMaxLength(250).IsRequired();
+            
+            // User -> Address (Many-to-One, optional)
+            entity.HasOne(u => u.AddressDbM)
+                  .WithMany(a => a.UsersDbM)
+                  .HasForeignKey(u => u.AddressId)
+                  .OnDelete(DeleteBehavior.SetNull);
+        });
+
+        // Attraction Configuration
+        modelBuilder.Entity<AttractionDbM>(entity =>
+        {
+            entity.HasKey(a => a.AttractionId);
+            entity.Property(a => a.Name).HasMaxLength(200).IsRequired();
+            entity.Property(a => a.Description).HasMaxLength(1000);
+            
+            // Attraction -> Address (One-to-One)
+            entity.HasOne(a => a.AddressDbM)
+                  .WithOne(addr => addr.AttractionDbM)
+                  .HasForeignKey<AttractionDbM>(a => a.AddressId)
+                  .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        // Comment Configuration
+        modelBuilder.Entity<CommentDbM>(entity =>
+        {
+            entity.HasKey(c => c.CommentId);
+            entity.Property(c => c.Text).HasMaxLength(1000).IsRequired();
+            
+            // Comment -> User (Many-to-One)
+            entity.HasOne(c => c.UsersDbM)
+                  .WithMany() // No navigation property back to comments in User
+                  .HasForeignKey(c => c.UserId)
+                  .OnDelete(DeleteBehavior.Cascade);
+            
+            // Comment -> Attraction (Many-to-One)
+            entity.HasOne(c => c.AttractionDbM)
+                  .WithMany(a => a.CommentDbM) // Attraction has many comments
+                  .HasForeignKey(c => c.AttractionId)
+                  .OnDelete(DeleteBehavior.Cascade);
+        });
     }
+    
+    
         
   
 
@@ -85,7 +121,7 @@ public class MainDbContext : Microsoft.EntityFrameworkCore.DbContext
     public class SqlServerDbContext : MainDbContext
     {
         public SqlServerDbContext() { }
-        public SqlServerDbContext(DbContextOptions options, DatabaseConnections databaseConnections) 
+        public SqlServerDbContext(DbContextOptions options, DatabaseConnections databaseConnections)
             : base(options, databaseConnections) { }
 
 

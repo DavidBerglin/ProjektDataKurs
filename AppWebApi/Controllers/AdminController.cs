@@ -34,71 +34,20 @@ namespace AppWebApi.Controllers
         readonly ICommentService _CommentService;
 
         readonly AdminDbRepos _repos;
-
-        //GET: api/admin/environment
-        [HttpGet()]
-        [ActionName("Environment")]
-        [ProducesResponseType(200, Type = typeof(DatabaseConnections.SetupInformation))]
-        public IActionResult Environment()
-        {
-            try
-            {
-                var info = _dbConnections.SetupInfo;
-
-                _logger.LogInformation($"{nameof(Environment)}:\n{JsonConvert.SerializeObject(info)}");
-                return Ok(info);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"{nameof(Environment)}: {ex.Message}");
-                return BadRequest(ex.Message);
-            }
-         }
-
-        [HttpGet()]
-        [ActionName("Version")]
-        [ProducesResponseType(typeof(VersionOptions), 200)]
-        public IActionResult Version()
-        {
-            try
-            {
-                _logger.LogInformation($"{nameof(Version)}:\n{JsonConvert.SerializeObject(_versionOptions)}");
-                return Ok(_versionOptions);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error retrieving version information");
-                return BadRequest(ex.Message);
-            }
-        }
+    
         //GET: api/admin/seed?count={count}
         [HttpPost()]
         [ActionName("Seed")]
         [ProducesResponseType(200, Type = typeof(string))]
         [ProducesResponseType(400, Type = typeof(string))]
-
         public async Task<IActionResult> Seed([FromQuery]int number)
         {
 
             await _service.SeedAsync(number);
             return Ok("Seeding completed successfully");
 
-
         }
 
-        [HttpPost()]
-        [ActionName("Read attraction")]
-        [ProducesResponseType(200, Type = typeof(IAttraction))]
-        [ProducesResponseType(400, Type = typeof(string))]
-
-        public async Task<IActionResult> ReadAttraction([FromQuery]int number)
-        {
-
-            var respons  = await _Aservice.ReadAttractionAsync(number);
-            return Ok(respons);
-
-
-        }
 
         [HttpPost]
         [ActionName("Read address")]

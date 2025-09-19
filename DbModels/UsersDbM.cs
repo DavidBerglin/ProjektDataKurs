@@ -13,14 +13,16 @@ namespace DbModels
     {
         [Key]
         public override Guid UserId { get; set; }
-        public override Guid? AddressId { get; set; }
+        public Guid? AddressId { get; set; }
         public override string FullName { get; set; }
         public override string Email { get; set; }
 
 
 
-      [NotMapped]
+        [NotMapped]
+        [JsonIgnore]
         public override IAddress Address { get => AddressDbM; set => new NotImplementedException(); }
+        [ForeignKey("AddressId")]
         public AddressDbM AddressDbM { get; set; }
 
         public UsersDbM() { }

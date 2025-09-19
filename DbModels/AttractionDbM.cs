@@ -4,6 +4,8 @@ using Seido.Utilities.SeedGenerator;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.IO.Compression;
+using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 namespace DbModels;
 
 public class AttractionDbM : Attraction, ISeed<AttractionDbM> , IEquatable<AttractionDbM>
@@ -11,14 +13,17 @@ public class AttractionDbM : Attraction, ISeed<AttractionDbM> , IEquatable<Attra
     [Key]
     public override Guid AttractionId { get; set; }
 
-    public override Guid AddressId { get; set; }
-
+    [Required]
+    public Guid AddressId { get; set; }
 
     [NotMapped]
+    [Newtonsoft.Json.JsonIgnore]
     public override IAddress Address { get => AddressDbM; set => new NotImplementedException(); }
+    [ForeignKey("AddressId")]
     public AddressDbM AddressDbM { get; set; } = null;
 
     [NotMapped]
+    [Newtonsoft.Json.JsonIgnore]
     public override List<IComments> Comments { get => CommentDbM?.ToList<IComments>(); set => new NotImplementedException();}
     public List<CommentDbM> CommentDbM { get; set; } = null;
 

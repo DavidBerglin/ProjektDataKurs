@@ -20,10 +20,13 @@ namespace DbModels
 
 
         [NotMapped]
+        [JsonIgnore]
         public override List<IUsers> Users { get => UsersDbM?.ToList<IUsers>(); set => new NotImplementedException(); }
         public List<UsersDbM> UsersDbM { get; set; } = null;
 
-
+        [NotMapped]
+        [JsonIgnore]
+        public override IAttraction Attraction { get => AttractionDbM; set => new NotImplementedException(); }
         public AttractionDbM AttractionDbM { get; set; }
 
 
