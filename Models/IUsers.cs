@@ -10,5 +10,6 @@ public interface IUsers
     public string FullName { get; set; }
     public string Email { get; set; }
     public IAddress Address { get; set; }
+    public List<IComments> Comments { get; set; }
 
 }

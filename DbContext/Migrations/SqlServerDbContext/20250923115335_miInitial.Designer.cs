@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DbContext.Migrations.SqlServerDbContext
 {
     [DbContext(typeof(MainDbContext.SqlServerDbContext))]
-    [Migration("20250919163353_miInitial")]
+    [Migration("20250923115335_miInitial")]
     partial class miInitial
     {
         /// <inheritdoc />
@@ -63,8 +63,9 @@ namespace DbContext.Migrations.SqlServerDbContext
                     b.Property<Guid>("AddressId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Category")
-                        .HasColumnType("int");
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("City")
                         .HasColumnType("varchar(200)");
@@ -84,8 +85,9 @@ namespace DbContext.Migrations.SqlServerDbContext
                     b.Property<bool>("Seeded")
                         .HasColumnType("bit");
 
-                    b.Property<int>("Type")
-                        .HasColumnType("int");
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("AttractionId");
 
@@ -173,7 +175,7 @@ namespace DbContext.Migrations.SqlServerDbContext
                         .IsRequired();
 
                     b.HasOne("DbModels.UsersDbM", "UsersDbM")
-                        .WithMany()
+                        .WithMany("CommentDbM")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -201,6 +203,11 @@ namespace DbContext.Migrations.SqlServerDbContext
                 });
 
             modelBuilder.Entity("DbModels.AttractionDbM", b =>
+                {
+                    b.Navigation("CommentDbM");
+                });
+
+            modelBuilder.Entity("DbModels.UsersDbM", b =>
                 {
                     b.Navigation("CommentDbM");
                 });

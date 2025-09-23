@@ -25,6 +25,12 @@ namespace DbModels
         [ForeignKey("AddressId")]
         public AddressDbM AddressDbM { get; set; }
 
+        [NotMapped]
+        [JsonIgnore]
+        public override List<IComments> Comments { get => CommentDbM?.ToList<IComments>(); set => new NotImplementedException(); }
+        // Navigation property för användarens kommentarer
+        public List<CommentDbM> CommentDbM { get; set; }
+
         public UsersDbM() { }
 
         public new UsersDbM Seed(SeedGenerator seeder)

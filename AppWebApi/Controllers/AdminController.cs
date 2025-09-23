@@ -23,24 +23,14 @@ namespace AppWebApi.Controllers
         readonly IAdminService _service;
         readonly ILogger<AdminController> _logger;
         readonly VersionOptions _versionOptions;
-
-        readonly IAddressService _AddressService;
-        readonly AddressDbRepos _AddRepos;
-        readonly IAttractionService _Aservice;
-        readonly AttractionDbRepos _Arepos;
-        readonly IUserService _UserService;
-        readonly UserDbRepos _UserRepos;
-        readonly CommentDbRepos _CommentRepos;
-        readonly ICommentService _CommentService;
-
-        readonly AdminDbRepos _repos;
     
         //GET: api/admin/seed?count={count}
         [HttpPost()]
         [ActionName("Seed")]
         [ProducesResponseType(200, Type = typeof(string))]
         [ProducesResponseType(400, Type = typeof(string))]
-        public async Task<IActionResult> Seed([FromQuery]int number)
+        public async Task<IActionResult> Seed(
+            [FromQuery]int number = 100)
         {
 
             await _service.SeedAsync(number);
@@ -50,32 +40,13 @@ namespace AppWebApi.Controllers
 
 
         [HttpPost]
-        [ActionName("Read address")]
-        [ProducesResponseType(200, Type = typeof(IAddress))]
+        [ActionName("Delete")]
+        [ProducesResponseType(200, Type = typeof(string))]
         [ProducesResponseType(400, Type = typeof(string))]
-        public async Task<IActionResult> ReadAddress([FromQuery]int number)
+        public async Task<IActionResult> RemoveAsync(bool seeded)
         {
-            var respons = await _AddressService.ReadAddressAsync(number);
-            return Ok(respons);
-        }
-
-        [HttpPost]
-        [ActionName("Read comment")]
-        [ProducesResponseType(200, Type = typeof(IComments))]
-        [ProducesResponseType(400, Type = typeof(string))]
-        public async Task<IActionResult> ReadComment([FromQuery]int number)
-        {
-            var respons = await _CommentService.ReadCommentsAsync(number);
-            return Ok(respons);
-        }
-
-        [HttpPost("Read user")]
-        [ProducesResponseType(200, Type = typeof(IUsers))]
-        [ProducesResponseType(400, Type = typeof(string))]
-        public async Task<IActionResult> ReadUser([FromQuery] int number)
-        {
-            var respons = await _UserService.ReadUsersAsync(number);
-            return Ok(respons);
+            await _service.RemoveAsync(seeded);
+            return Ok("Removed database");
         }
 
         //GET: api/admin/log
@@ -97,30 +68,12 @@ namespace AppWebApi.Controllers
         public AdminController(IAdminService service,
             ILogger<AdminController> logger,
             DatabaseConnections dbConnections,
-            IOptions<VersionOptions> versionOptions,
-            AdminDbRepos repos,
-            AttractionDbRepos Arepos,
-            IAttractionService Aservice,
-            IAddressService AddService,
-            AddressDbRepos AddRepos,
-            UserDbRepos UserRepos,
-            IUserService UserService,
-            CommentDbRepos CommentRepos,
-            ICommentService CommentService)
+            IOptions<VersionOptions> versionOptions)
         {
             _service = service;
             _logger = logger;
             _dbConnections = dbConnections;
             _versionOptions = versionOptions.Value;
-            _repos = repos;
-            _Arepos = Arepos;
-            _Aservice = Aservice;
-            _AddressService = AddService;
-            _AddRepos = AddRepos;
-            _UserRepos = UserRepos;
-            _UserService = UserService;
-            _CommentRepos = CommentRepos;
-            _CommentService = CommentService;
         }
     }
 }

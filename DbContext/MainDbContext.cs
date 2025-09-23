@@ -72,21 +72,25 @@ public class MainDbContext : Microsoft.EntityFrameworkCore.DbContext
             entity.Property(u => u.FullName).HasMaxLength(200).IsRequired();
             entity.Property(u => u.Email).HasMaxLength(250).IsRequired();
             
-            // User -> Address (Many-to-One, optional)
             entity.HasOne(u => u.AddressDbM)
                   .WithMany(a => a.UsersDbM)
                   .HasForeignKey(u => u.AddressId)
                   .OnDelete(DeleteBehavior.SetNull);
+
+            entity.HasMany(u => u.CommentDbM)
+                  .WithOne(c => c.UsersDbM)
+                  .HasForeignKey(c => c.UserId)
+                  .OnDelete(DeleteBehavior.Cascade);
         });
 
-        // Attraction Configuration
         modelBuilder.Entity<AttractionDbM>(entity =>
         {
             entity.HasKey(a => a.AttractionId);
             entity.Property(a => a.Name).HasMaxLength(200).IsRequired();
             entity.Property(a => a.Description).HasMaxLength(1000);
+            entity.Property(a => a.Category).HasConversion<string>();
+            entity.Property(a => a.Type).HasConversion<string>();
             
-            // Attraction -> Address (One-to-One)
             entity.HasOne(a => a.AddressDbM)
                   .WithOne(addr => addr.AttractionDbM)
                   .HasForeignKey<AttractionDbM>(a => a.AddressId)
@@ -99,13 +103,6 @@ public class MainDbContext : Microsoft.EntityFrameworkCore.DbContext
             entity.HasKey(c => c.CommentId);
             entity.Property(c => c.Text).HasMaxLength(1000).IsRequired();
             
-            // Comment -> User (Many-to-One)
-            entity.HasOne(c => c.UsersDbM)
-                  .WithMany()
-                  .HasForeignKey(c => c.UserId)
-                  .OnDelete(DeleteBehavior.Cascade);
-            
-            // Comment -> Attraction (Many-to-One)
             entity.HasOne(c => c.AttractionDbM)
                   .WithMany(a => a.CommentDbM)
                   .HasForeignKey(c => c.AttractionId)

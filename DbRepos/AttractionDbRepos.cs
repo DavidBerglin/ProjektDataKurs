@@ -11,6 +11,7 @@ using DbRepos;
 using Microsoft.AspNetCore.JsonPatch.Internal;
 using Models.DTO;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DbRepos;
 
@@ -67,16 +68,26 @@ public class AttractionDbRepos
         .ToListAsync();
         }
     }
-     public async Task<List<IAttraction>>ReadAttractionNoComment()
+    public async Task<List<IAttraction>> ReadAttractionFilter(bool seeded, string filter)
     {
-        return await _dbContext.AttractionDbM
-        .AsNoTracking()
+        filter ??= "";
+        var query = _dbContext.AttractionDbM.AsNoTracking()
         .Include(a => a.AddressDbM)
         .Include(a => a.CommentDbM)
-            .ThenInclude(c => c.UsersDbM)
-        .Where(i => !i.CommentDbM.Any())
+            .ThenInclude(c => c.UsersDbM);
+
+        var filterItems = query
+        .Where(i => (i.Seeded == seeded) && (
+        i.City.ToLower().Contains(filter) ||
+        i.Country.ToLower().Contains(filter) ||
+        i.Description.ToLower().Contains(filter) ||
+        i.Category.ToString().ToLower().Contains(filter) ||
+        i.Type.ToString().ToLower().Contains(filter)
+        ));
+        return await filterItems
         .Cast<IAttraction>()
         .ToListAsync();
+        
     }
 
   

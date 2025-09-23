@@ -7,6 +7,7 @@ public class Users : IUsers, ISeed<Users>
     public virtual string FullName { get; set; }
     public virtual string Email { get; set; }
     public virtual IAddress Address { get; set; }
+    public virtual List<IComments> Comments { get; set; }
     public bool Seeded { get; set; } = false;
 
     public Users() { }
@@ -17,6 +18,7 @@ public class Users : IUsers, ISeed<Users>
         this.FullName = OG.FullName;
         this.Email = OG.Email;
         this.Address = OG.Address;
+        this.Comments = OG.Comments;
     }
     public virtual Users Seed(SeedGenerator seeder)
     {

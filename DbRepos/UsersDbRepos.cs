@@ -21,6 +21,7 @@ public class UserDbRepos
         return await _dbContext.UsersDbM
         .AsNoTracking()
         .Include(a => a.AddressDbM)
+        .Include(a => a.CommentDbM)
         .Take(number)
         .Cast<IUsers>()
         .ToListAsync();

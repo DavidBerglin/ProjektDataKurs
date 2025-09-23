@@ -68,9 +68,9 @@ namespace AppWebApi.Controllers
         [ActionName("Attraction no comment")]
         [ProducesResponseType(200, Type = typeof(IAttraction))]
         [ProducesResponseType(400, Type = typeof(string))]
-        public async Task<IActionResult> ReadAttractionNoComment()
+        public async Task<IActionResult> ReadAttractionFilter(bool seeded, string filter)
         {
-            var respons = await _Aservice.ReadAttractionNoComment();
+            var respons = await _Aservice.ReadAttractionFilter(seeded,filter);
             return Ok(respons);
         }
 

@@ -37,8 +37,8 @@ namespace DbContext.Migrations.SqlServerDbContext
                     Description = table.Column<string>(type: "varchar(200)", maxLength: 1000, nullable: true),
                     City = table.Column<string>(type: "varchar(200)", nullable: true),
                     Country = table.Column<string>(type: "varchar(200)", nullable: true),
-                    Type = table.Column<int>(type: "int", nullable: false),
-                    Category = table.Column<int>(type: "int", nullable: false),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Category = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Seeded = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
