@@ -10,9 +10,10 @@ public class AdminServiceDb : IAdminService
     private readonly ILogger<AdminServiceDb> _logger = null;
 
     public Task SeedAsync(int number) => _repo.SeedAsync(number);
-    public Task RemoveAsync(bool seeded) => _repo.RemoveAsync(seeded);
+    public Task <string>RemoveAsync(bool seeded) => _repo.RemoveAsync(seeded);
 
-    #region constructors
+    public Task <string>RemoveSQL() => _repo.RemoveSQL();
+
     public AdminServiceDb(AdminDbRepos repo)
     {
         _repo = repo;
@@ -21,6 +22,5 @@ public class AdminServiceDb : IAdminService
     {
         _logger = logger;
     }
-    #endregion
 }
 

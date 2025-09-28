@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Services;
 using Models;
+using Models.DTO;
 
 namespace AppWebApi.Controllers
 {
@@ -12,15 +13,15 @@ namespace AppWebApi.Controllers
         private readonly ILogger<UsersController> _logger;
 
         [HttpGet]
-        [ActionName("ReadUsersWithComments")]
-        [ProducesResponseType(200, Type = typeof(IUsers))]
+        [ActionName("Users and comments")]
+        [ProducesResponseType(200, Type = typeof(ReadUsersCommentsDTO))]
         [ProducesResponseType(400, Type = typeof(string))]
-        public async Task<IActionResult> ReadUsersWithComments([FromQuery] int number = 50)
+        public async Task<IActionResult> ReadUsersWithComments()
         {
             try
             {
-                var users = await _userService.ReadUsersAsync(number);
-                return Ok(users);
+                var respons = await _userService.ReadUsersAsync();
+                return Ok(respons);
             }
             catch (Exception ex)
             {

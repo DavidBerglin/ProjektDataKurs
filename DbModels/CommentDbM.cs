@@ -21,13 +21,11 @@ namespace DbModels
         [NotMapped]
         [JsonIgnore]
         public override IAttraction Attraction { get => AttractionDbM; set => new NotImplementedException(); }
-        [ForeignKey("AttractionId")]
         public AttractionDbM AttractionDbM { get; set; }
 
         [NotMapped]
         [JsonIgnore]
         public override IUsers User { get => UsersDbM; set => new NotImplementedException(); }
-        [ForeignKey("UserId")]
         public UsersDbM UsersDbM { get; set; }
 
         public CommentDbM() { }

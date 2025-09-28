@@ -25,27 +25,22 @@ public class MainDbContext : Microsoft.EntityFrameworkCore.DbContext
         System.Text.RegularExpressions.RegexOptions.IgnoreCase);
 #endif
 
-    #region C# model of database tables
 
     public DbSet<AttractionDbM> AttractionDbM { get; set;}
     public DbSet<AddressDbM> AddressDbM { get; set; }
     public DbSet<UsersDbM> UsersDbM { get; set; }
     public DbSet<CommentDbM> CommentDbM { get; set; }
-    #endregion
-
-    #region constructors
+   
     public MainDbContext() { }
     public MainDbContext(DbContextOptions options, DatabaseConnections databaseConnections) : base(options)
     { 
         _databaseConnections = databaseConnections;
     }
-    #endregion
 
     //Here we can modify the migration building
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        #region override modelbuilder
-        #endregion
+      
 
         base.OnModelCreating(modelBuilder);
         
@@ -114,7 +109,6 @@ public class MainDbContext : Microsoft.EntityFrameworkCore.DbContext
         
   
 
-    #region DbContext for some popular databases
     public class SqlServerDbContext : MainDbContext
     {
         public SqlServerDbContext() { }
@@ -202,5 +196,4 @@ public class MainDbContext : Microsoft.EntityFrameworkCore.DbContext
             base.ConfigureConventions(configurationBuilder);
         }
     }
-    #endregion
 }

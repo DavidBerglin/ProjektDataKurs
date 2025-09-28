@@ -10,6 +10,7 @@ using Microsoft.Extensions.Options;
 using DbRepos;
 using DbModels;
 using Models;
+using Models.DTO;
 using System.ComponentModel;
 using System.Xml;
 
@@ -23,34 +24,14 @@ namespace AppWebApi.Controllers
         readonly IAttractionService _Aservice;
 
 
-
-        [HttpPost]
-        [ActionName("Read attractionDTO")]
-        [ProducesResponseType(200, Type = typeof(IAttraction))]
-        [ProducesResponseType(400, Type = typeof(string))]
-        public async Task<IActionResult> ReadAttraction([FromQuery] string id, string flat)
-        {
-            try
-            {
-                var idArg = Guid.Parse(id);
-                bool flatArg = bool.Parse(flat);
-
-                var item = await _Aservice.ReadAttractionsAsync(idArg, flatArg);
-                if (item == null) throw new ArgumentException($"Couldnt find attraction with id: {id}");
-                return Ok(item);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
         [HttpGet]
-        [ActionName("Read attraction")]
-        [ProducesResponseType(200, Type = typeof(IAttraction))]
+        [ActionName("Read attractions")]
+        [ProducesResponseType(200, Type = typeof(ReadAttractionSummaryDTO))]
         [ProducesResponseType(400, Type = typeof(string))]
         public async Task<IActionResult> ReadAttractionALL(
             [FromQuery][DefaultValue(10)] int number,
             [Description("If true, includes comments")] bool comment = false)
+
         {
             try
             {
@@ -63,15 +44,23 @@ namespace AppWebApi.Controllers
             }
            
         }
-    
-        [HttpPost]
-        [ActionName("Attraction no comment")]
-        [ProducesResponseType(200, Type = typeof(IAttraction))]
+
+        [HttpGet]
+        [ActionName("Search")]
+        [ProducesResponseType(200, Type = typeof(ReadAttractionSummaryDTO))]
         [ProducesResponseType(400, Type = typeof(string))]
         public async Task<IActionResult> ReadAttractionFilter(bool seeded, string filter)
         {
-            var respons = await _Aservice.ReadAttractionFilter(seeded,filter);
-            return Ok(respons);
+            try
+            {
+                var respons = await _Aservice.ReadAttractionFilter(seeded, filter);
+                return Ok(respons);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+          
         }
 
         public AttractionController(IAttractionService Aservice)

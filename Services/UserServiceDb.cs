@@ -1,15 +1,13 @@
-using Models;
 using DbRepos;
+using Models.DTO;
 
 namespace Services
 {
     public class UserServiceDb : IUserService
     {
         private readonly UserDbRepos _user = null;
-        public Task<List<IUsers>> ReadUsersAsync(int number)
-        {
-            return _user.ReadUsersAsync(number);
-        }
+        public Task<List<ReadUsersCommentsDTO>> ReadUsersAsync() => _user.ReadUsersAsync();
+        
 
         public UserServiceDb(UserDbRepos user)
         {

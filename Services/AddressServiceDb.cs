@@ -1,5 +1,6 @@
 using Models;
 using DbRepos;
+using Models.DTO;
 
 namespace Services
 {
@@ -7,10 +8,8 @@ namespace Services
     {
         private readonly AddressDbRepos _repo = null;
 
-        public Task<List<IAddress>> ReadAddressAsync(int number)
-        {
-            return _repo.ReadAddressAsync(number);
-        }
+        public Task<List<AddressDTO>> ReadAddressAsync(int number) =>  _repo.ReadAddressAsync(number);
+        
         public AddressServiceDb(AddressDbRepos repo)
         {
             _repo = repo;

@@ -1,8 +1,7 @@
-using Models;
-
+using Models.DTO;
 namespace Services;
 
 public interface IUserService
 {
-    public Task<List<IUsers>> ReadUsersAsync(int number);
+    public Task<List<ReadUsersCommentsDTO>> ReadUsersAsync();
 }

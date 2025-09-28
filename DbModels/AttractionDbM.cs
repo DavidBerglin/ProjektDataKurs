@@ -19,7 +19,6 @@ public class AttractionDbM : Attraction, ISeed<AttractionDbM> , IEquatable<Attra
     [NotMapped]
     [Newtonsoft.Json.JsonIgnore]
     public override IAddress Address { get => AddressDbM; set => new NotImplementedException(); }
-    [ForeignKey("AddressId")]
     public AddressDbM AddressDbM { get; set; } = null;
 
     [NotMapped]

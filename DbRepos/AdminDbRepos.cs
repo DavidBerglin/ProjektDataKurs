@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
+using System.Diagnostics;
 
 using Seido.Utilities.SeedGenerator;
 using DbModels;
@@ -15,7 +16,6 @@ namespace DbRepos;
 public class AdminDbRepos
 {
     private readonly ILogger<AdminDbRepos> _logger;
-    private Encryptions _encryptions;
     private readonly MainDbContext _dbContext;
 
     public async Task SeedAsync(int number)
@@ -73,25 +73,38 @@ public class AdminDbRepos
         await _dbContext.CommentDbM.AddRangeAsync(comment);
         await _dbContext.SaveChangesAsync();
     }
-    public async Task RemoveAsync(bool seeded)
+    
+    public async Task<string> RemoveAsync(bool seeded)
     {
+        var stopwatch = Stopwatch.StartNew();
+
         _dbContext.CommentDbM.RemoveRange(_dbContext.CommentDbM.Where(a => a.Seeded == seeded));
         _dbContext.AttractionDbM.RemoveRange(_dbContext.AttractionDbM.Where(a => a.Seeded == seeded));
         _dbContext.AddressDbM.RemoveRange(_dbContext.AddressDbM.Where(a => a.Seeded == seeded));
         _dbContext.UsersDbM.RemoveRange(_dbContext.UsersDbM.Where(a => a.Seeded == seeded));
-
+        stopwatch.Stop();
+        var time = $"Removed in {stopwatch.Elapsed.TotalSeconds}seconds";
         await _dbContext.SaveChangesAsync();
-
-        
-
-
+        return time;
 
     }
+    public async Task<string> RemoveSQL()
+    {
+        var stopwatch = Stopwatch.StartNew();
+        await _dbContext.Database.ExecuteSqlRawAsync("DELETE FROM CommentDbM WHERE Seeded = 1");
+        await _dbContext.Database.ExecuteSqlRawAsync("DELETE FROM AttractionDbM WHERE Seeded = 1");
+        await _dbContext.Database.ExecuteSqlRawAsync("DELETE FROM AddressDbM WHERE Seeded = 1");
+        await _dbContext.Database.ExecuteSqlRawAsync("DELETE FROM UsersDbM WHERE Seeded = 1");
+        stopwatch.Stop();
+        var timeSQL = $"Removed in {stopwatch.Elapsed.TotalSeconds}seconds";
+        await _dbContext.SaveChangesAsync();
+        return timeSQL;
+        
+    }
 
-    public AdminDbRepos(ILogger<AdminDbRepos> logger, Encryptions encryptions, MainDbContext context)
+    public AdminDbRepos(ILogger<AdminDbRepos> logger, MainDbContext context)
     {
         _logger = logger;
-        _encryptions = encryptions;
         _dbContext = context;
     }
 }

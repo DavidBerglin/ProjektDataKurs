@@ -9,6 +9,8 @@ using Models;
 using Microsoft.VisualBasic;
 using DbRepos;
 using System.IO.Compression;
+using Models.DTO;
+
 
 namespace DbRepos;
 
@@ -16,15 +18,31 @@ public class UserDbRepos
 {
     private readonly MainDbContext _dbContext;
 
-    public async Task<List<IUsers>> ReadUsersAsync(int number)
+    public async Task<List<ReadUsersCommentsDTO>> ReadUsersAsync()
     {
         return await _dbContext.UsersDbM
         .AsNoTracking()
-        .Include(a => a.AddressDbM)
         .Include(a => a.CommentDbM)
-        .Take(number)
-        .Cast<IUsers>()
+        .ThenInclude(a => a.AttractionDbM)
+        .Where(a => a.CommentDbM.Any())
+        .Select(user => new ReadUsersCommentsDTO
+       {
+            UserId = user.UserId,
+            FullName = user.FullName,
+            Email = user.Email,
+            Comments = user.CommentDbM.Select(comment => new UserCommentDTO
+            {
+                CommentId = comment.CommentId,
+                Text = comment.Text,
+                AttractionId = comment.AttractionDbM.AttractionId,
+                Name = comment.AttractionDbM.Name,
+                City = comment.AttractionDbM.City,
+                Country = comment.AttractionDbM.Country
+            }).ToList()
+        })
         .ToListAsync();
+
+    
         
     }
     public UserDbRepos(MainDbContext context)
