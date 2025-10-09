@@ -20,12 +20,10 @@ namespace DbModels
 
 
         [NotMapped]
-        [JsonIgnore]
         public override IAddress Address { get => AddressDbM; set => new NotImplementedException(); }
         public AddressDbM AddressDbM { get; set; }
 
         [NotMapped]
-        [JsonIgnore]
         public override List<IComments> Comments { get => CommentDbM?.ToList<IComments>(); set => new NotImplementedException(); }
         public List<CommentDbM> CommentDbM { get; set; }
 

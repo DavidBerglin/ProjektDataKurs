@@ -19,12 +19,10 @@ namespace DbModels
         public override string Text { get; set; }
 
         [NotMapped]
-        [JsonIgnore]
         public override IAttraction Attraction { get => AttractionDbM; set => new NotImplementedException(); }
         public AttractionDbM AttractionDbM { get; set; }
 
         [NotMapped]
-        [JsonIgnore]
         public override IUsers User { get => UsersDbM; set => new NotImplementedException(); }
         public UsersDbM UsersDbM { get; set; }
 

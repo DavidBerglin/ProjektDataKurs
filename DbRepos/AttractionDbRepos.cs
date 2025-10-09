@@ -19,7 +19,6 @@ public class AttractionDbRepos
 {
     private readonly MainDbContext _dbContext;
 
-    // Repository returnerar interface via projection
     public async Task<List<ReadAttractionSummaryDTO>> ReadAttraction(int number, bool comment)
     {
         if (comment)

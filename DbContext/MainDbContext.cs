@@ -44,13 +44,11 @@ public class MainDbContext : Microsoft.EntityFrameworkCore.DbContext
 
         base.OnModelCreating(modelBuilder);
         
-        // Ignore base model classes
         modelBuilder.Ignore<Models.Attraction>();
         modelBuilder.Ignore<Models.Address>();
         modelBuilder.Ignore<Models.Users>();
         modelBuilder.Ignore<Models.Comment>();
 
-        // Address Configuration
         modelBuilder.Entity<AddressDbM>(entity =>
         {
             entity.HasKey(a => a.AddressId);
@@ -60,7 +58,6 @@ public class MainDbContext : Microsoft.EntityFrameworkCore.DbContext
             entity.Property(a => a.ZipCode).IsRequired();
         });
 
-        // Users Configuration
         modelBuilder.Entity<UsersDbM>(entity =>
         {
             entity.HasKey(u => u.UserId);
@@ -92,7 +89,6 @@ public class MainDbContext : Microsoft.EntityFrameworkCore.DbContext
                   .OnDelete(DeleteBehavior.Cascade);
         });
 
-        // Comment Configuration
         modelBuilder.Entity<CommentDbM>(entity =>
         {
             entity.HasKey(c => c.CommentId);

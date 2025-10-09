@@ -37,3 +37,16 @@ C:\Users\davva\Desktop\Dataåtkomster\creditcard\Configuration\obj\Debug\net9.0\
 C:\Users\davva\Desktop\Dataåtkomster\creditcard\Configuration\obj\Debug\net9.0\refint\Configuration.dll
 C:\Users\davva\Desktop\Dataåtkomster\creditcard\Configuration\obj\Debug\net9.0\Configuration.pdb
 C:\Users\davva\Desktop\Dataåtkomster\creditcard\Configuration\obj\Debug\net9.0\ref\Configuration.dll
+C:\Users\davva\Desktop\Dataåtkomster\ProjektDavid\Configuration\bin\Debug\net9.0\Configuration.deps.json
+C:\Users\davva\Desktop\Dataåtkomster\ProjektDavid\Configuration\bin\Debug\net9.0\Configuration.dll
+C:\Users\davva\Desktop\Dataåtkomster\ProjektDavid\Configuration\bin\Debug\net9.0\Configuration.pdb
+C:\Users\davva\Desktop\Dataåtkomster\ProjektDavid\Configuration\obj\Debug\net9.0\Configuration.csproj.AssemblyReference.cache
+C:\Users\davva\Desktop\Dataåtkomster\ProjektDavid\Configuration\obj\Debug\net9.0\Configuration.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\davva\Desktop\Dataåtkomster\ProjektDavid\Configuration\obj\Debug\net9.0\Configuration.AssemblyInfoInputs.cache
+C:\Users\davva\Desktop\Dataåtkomster\ProjektDavid\Configuration\obj\Debug\net9.0\Configuration.AssemblyInfo.cs
+C:\Users\davva\Desktop\Dataåtkomster\ProjektDavid\Configuration\obj\Debug\net9.0\Configuration.csproj.CoreCompileInputs.cache
+C:\Users\davva\Desktop\Dataåtkomster\ProjektDavid\Configuration\obj\Debug\net9.0\Configuration.sourcelink.json
+C:\Users\davva\Desktop\Dataåtkomster\ProjektDavid\Configuration\obj\Debug\net9.0\Configuration.dll
+C:\Users\davva\Desktop\Dataåtkomster\ProjektDavid\Configuration\obj\Debug\net9.0\refint\Configuration.dll
+C:\Users\davva\Desktop\Dataåtkomster\ProjektDavid\Configuration\obj\Debug\net9.0\Configuration.pdb
+C:\Users\davva\Desktop\Dataåtkomster\ProjektDavid\Configuration\obj\Debug\net9.0\ref\Configuration.dll

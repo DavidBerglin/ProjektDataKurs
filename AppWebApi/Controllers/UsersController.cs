@@ -16,11 +16,11 @@ namespace AppWebApi.Controllers
         [ActionName("Users and comments")]
         [ProducesResponseType(200, Type = typeof(ReadUsersCommentsDTO))]
         [ProducesResponseType(400, Type = typeof(string))]
-        public async Task<IActionResult> ReadUsersWithComments()
+        public async Task<IActionResult> ReadUsersWithComments(int number = 100)
         {
             try
             {
-                var respons = await _userService.ReadUsersAsync();
+                var respons = await _userService.ReadUsersAsync(number);
                 return Ok(respons);
             }
             catch (Exception ex)

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0TBpJ1ub9Ig=",
+  "dgSpecHash": "O5pGhCEPUDY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\creditcard\\Configuration\\Configuration.csproj",
+  "projectFilePath": "C:\\Users\\davva\\Desktop\\Dataåtkomster\\ProjektDavid\\Configuration\\Configuration.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\davva\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\davva\\.nuget\\packages\\azure.extensions.aspnetcore.configuration.secrets\\1.4.0\\azure.extensions.aspnetcore.configuration.secrets.1.4.0.nupkg.sha512",

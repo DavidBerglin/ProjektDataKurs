@@ -18,13 +18,14 @@ public class UserDbRepos
 {
     private readonly MainDbContext _dbContext;
 
-    public async Task<List<ReadUsersCommentsDTO>> ReadUsersAsync()
+    public async Task<List<ReadUsersCommentsDTO>> ReadUsersAsync(int number)
     {
         return await _dbContext.UsersDbM
         .AsNoTracking()
         .Include(a => a.CommentDbM)
         .ThenInclude(a => a.AttractionDbM)
         .Where(a => a.CommentDbM.Any())
+        .Take(number)
         .Select(user => new ReadUsersCommentsDTO
        {
             UserId = user.UserId,
