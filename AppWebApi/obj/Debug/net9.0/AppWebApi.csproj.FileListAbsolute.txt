@@ -371,8 +371,8 @@ C:\Users\davva\Desktop\Dataåtkomster\creditcard\AppWebApi\obj\Debug\net9.0\AppW
 C:\Users\davva\Desktop\Dataåtkomster\creditcard\AppWebApi\obj\Debug\net9.0\AppWebApi.genruntimeconfig.cache
 C:\Users\davva\Desktop\Dataåtkomster\creditcard\AppWebApi\obj\Debug\net9.0\ref\AppWebApi.dll
 C:\Users\davva\Desktop\Dataåtkomster\ProjektDavid\AppWebApi\bin\Debug\net9.0\app-seeds.json
-C:\Users\davva\Desktop\Dataåtkomster\ProjektDavid\AppWebApi\bin\Debug\net9.0\AppWebApi.staticwebassets.endpoints.json
 C:\Users\davva\Desktop\Dataåtkomster\ProjektDavid\AppWebApi\bin\Debug\net9.0\appsettings.json
+C:\Users\davva\Desktop\Dataåtkomster\ProjektDavid\AppWebApi\bin\Debug\net9.0\AppWebApi.staticwebassets.endpoints.json
 C:\Users\davva\Desktop\Dataåtkomster\ProjektDavid\AppWebApi\bin\Debug\net9.0\AppWebApi.exe
 C:\Users\davva\Desktop\Dataåtkomster\ProjektDavid\AppWebApi\bin\Debug\net9.0\AppWebApi.deps.json
 C:\Users\davva\Desktop\Dataåtkomster\ProjektDavid\AppWebApi\bin\Debug\net9.0\AppWebApi.runtimeconfig.json
